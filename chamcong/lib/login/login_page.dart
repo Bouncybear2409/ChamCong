@@ -1,4 +1,4 @@
-import 'package:chamcong/home/body_home_page.dart';
+import 'package:chamcong/login/login_body.dart';
 
 import 'package:flutter/material.dart';
 
@@ -10,7 +10,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
-        child: const BodyHomePage(),
+        child: const LoginBody(),
       ),
     );
   }

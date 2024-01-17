@@ -3,14 +3,14 @@ import 'package:chamcong/verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class BodyHomePage extends StatefulWidget {
-  const BodyHomePage({super.key});
+class LoginBody extends StatefulWidget {
+  const LoginBody({super.key});
 
   @override
-  State<BodyHomePage> createState() => _BodyHomePageState();
+  State<LoginBody> createState() => _LoginBodyState();
 }
 
-class _BodyHomePageState extends State<BodyHomePage> {
+class _LoginBodyState extends State<LoginBody> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   String notificatitonText = '';
