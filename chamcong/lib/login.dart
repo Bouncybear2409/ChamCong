@@ -1,7 +1,6 @@
 import 'package:chamcong/verify.dart';
 import 'package:flutter/material.dart';
 
-
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -16,8 +15,8 @@ class LoginPage extends StatelessWidget {
       passwordController.clear();
     }
 
-      // ignore: unused_element
-void handleForgotPasswordTap() {
+    // ignore: unused_element
+    void handleForgotPasswordTap() {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const VerifyPage()),
@@ -109,12 +108,12 @@ void handleForgotPasswordTap() {
                 ),
               ),
               const SizedBox(height: 20),
-              GestureDetector(
-                onTap: handleForgotPasswordTap,
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    onPressed: handleForgotPasswordTap,
+                    child: Text(
                       'Forgot password',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -127,8 +126,8 @@ void handleForgotPasswordTap() {
                         letterSpacing: 0.10,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               const SizedBox(height: 40),
               SizedBox(
@@ -164,5 +163,3 @@ void handleForgotPasswordTap() {
     );
   }
 }
-  
-
