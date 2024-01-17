@@ -1,28 +1,61 @@
 import 'package:chamcong/verify.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  String notificatitonText = '';
+  void clearTextFields() {
+    usernameController.clear();
+    passwordController.clear();
+  }
+
+  void handleForgotPasswordTap() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const VerifyPage()),
+    );
+  }
+
+  bool checkCredentials(String username, String password) {
+    return username == 'user' && password == 'password';
+  }
+
+  void validateLogin() {
+    String username = usernameController.text;
+    String password = passwordController.text;
+
+    bool isValidLogin = checkCredentials(username, password);
+
+    if (isValidLogin) {
+      print('Đăng nhập thành công');
+      notificatitonText = 'Đăng nhập thành công';
+    } else {
+      if (username.isEmpty || password.isEmpty) {
+        setState(() {
+          notificatitonText = 'Vui lòng nhập đầy đủ thông tin.';
+        });
+      } else if (password.length < 8) {
+        setState(() {
+          notificatitonText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
+        });
+      } else {
+        setState(() {
+          notificatitonText = 'Tài khoản hoặc mật khẩu không hợp lệ.';
+        });
+      }
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController usernameController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
-
-    // ignore: unused_element
-    void clearTextFields() {
-      usernameController.clear();
-      passwordController.clear();
-    }
-
-    // ignore: unused_element
-    void handleForgotPasswordTap() {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const VerifyPage()),
-      );
-    }
-
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -64,6 +97,7 @@ class LoginPage extends StatelessWidget {
                       child: TextField(
                         controller: usernameController,
                         decoration: const InputDecoration(
+                          border: InputBorder.none,
                           hintText: 'Username',
                           icon: Icon(Icons.person, color: Colors.grey),
                         ),
@@ -93,6 +127,7 @@ class LoginPage extends StatelessWidget {
                         controller: passwordController,
                         obscureText: true,
                         decoration: const InputDecoration(
+                          border: InputBorder.none,
                           hintText: 'Password',
                           icon: Icon(Icons.lock, color: Colors.grey),
                         ),
@@ -108,6 +143,10 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
+              Text(
+                notificatitonText,
+                style: TextStyle(color: Colors.red),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -129,7 +168,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
               SizedBox(
                 width: 320,
                 child: ElevatedButton(
@@ -137,7 +176,7 @@ class LoginPage extends StatelessWidget {
                     backgroundColor: Colors.green,
                   ),
                   onPressed: () {
-                    // Xử lý khi nhấn nút Sign In
+                    validateLogin();
                   },
                   child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15),
