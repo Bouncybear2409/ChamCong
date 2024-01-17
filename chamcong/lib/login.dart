@@ -113,7 +113,7 @@ class LoginPage extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: handleForgotPasswordTap,
-                    child: Text(
+                    child: const Text(
                       'Forgot password',
                       textAlign: TextAlign.center,
                       style: TextStyle(
