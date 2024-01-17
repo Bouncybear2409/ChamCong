@@ -1,4 +1,5 @@
 import 'package:chamcong/home/home_page.dart';
+import 'package:chamcong/login/alert_dialog/alert_dialog.dart';
 import 'package:chamcong/verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,6 +12,7 @@ class LoginBody extends StatefulWidget {
 }
 
 class _LoginBodyState extends State<LoginBody> {
+  int count = 0;
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   String notificatitonText = '';
@@ -29,7 +31,6 @@ class _LoginBodyState extends State<LoginBody> {
   void validateLogin() {
     String username = usernameController.text;
     String password = passwordController.text;
-    int count = 0;
     bool isValidLogin = checkCredentials(username, password);
 
     if (isValidLogin) {
@@ -40,26 +41,50 @@ class _LoginBodyState extends State<LoginBody> {
     } else {
       if (username.isEmpty || password.isEmpty) {
         setState(() {
-          count++;
           notificatitonText = 'Vui lòng nhập đầy đủ thông tin.';
         });
       } else if (password.length < 8) {
         setState(() {
-          count++;
           notificatitonText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
         });
       } else {
+        count++;
         setState(() {
-          count++;
           notificatitonText = 'Tài khoản hoặc mật khẩu không hợp lệ.';
         });
       }
-      if (count == 3) {
-        setState(() {
-          notificatitonText =
-              'Tài khoản của bạn đã bị khóa trong 5 phút. Vui lòng đăng nhập lại sau 5 phút';
-        });
-      }
+    }
+    if (count == 3) {
+      showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: Text(
+            'Bị khóa đăng nhập',
+            style: TextStyle(
+              color: Color(0xFF2C2C2C),
+              fontSize: 24.sp,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          content: Text(
+            'Bạn đã nhập sai tài khoản hoặc mật khẩu quá nhiều lần. Bạn bị khóa đăng nhập trong 5 phút. Vui lòng đăng nhập lại sau 5 phút.',
+            style: TextStyle(
+              color: Color(0xFF49454F),
+              fontSize: 14.sp,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w400,
+              letterSpacing: 0.25,
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'OK'),
+              child: const Text('Đồng ý'),
+            ),
+          ],
+        ),
+      );
     }
   }
 
