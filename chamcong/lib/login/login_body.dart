@@ -29,7 +29,7 @@ class _LoginBodyState extends State<LoginBody> {
   void validateLogin() {
     String username = usernameController.text;
     String password = passwordController.text;
-
+    int count = 0;
     bool isValidLogin = checkCredentials(username, password);
 
     if (isValidLogin) {
@@ -40,15 +40,24 @@ class _LoginBodyState extends State<LoginBody> {
     } else {
       if (username.isEmpty || password.isEmpty) {
         setState(() {
+          count++;
           notificatitonText = 'Vui lòng nhập đầy đủ thông tin.';
         });
       } else if (password.length < 8) {
         setState(() {
+          count++;
           notificatitonText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
         });
       } else {
         setState(() {
+          count++;
           notificatitonText = 'Tài khoản hoặc mật khẩu không hợp lệ.';
+        });
+      }
+      if (count == 3) {
+        setState(() {
+          notificatitonText =
+              'Tài khoản của bạn đã bị khóa trong 5 phút. Vui lòng đăng nhập lại sau 5 phút';
         });
       }
     }
@@ -95,6 +104,7 @@ class _LoginBodyState extends State<LoginBody> {
                       style: TextStyle(color: Colors.black),
                       controller: usernameController,
                       decoration: InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10.sp),
                         border: notificatitonText.isEmpty
                             ? InputBorder.none
                             : UnderlineInputBorder(
@@ -131,6 +141,7 @@ class _LoginBodyState extends State<LoginBody> {
                       controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10.sp),
                         border: notificatitonText.isEmpty
                             ? InputBorder.none
                             : UnderlineInputBorder(
