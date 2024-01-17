@@ -92,6 +92,7 @@ class _LoginBodyState extends State<LoginBody> {
                 children: [
                   Expanded(
                     child: TextFormField(
+                      style: TextStyle(color: Colors.black),
                       controller: usernameController,
                       decoration: InputDecoration(
                         border: notificatitonText.isEmpty
@@ -126,6 +127,7 @@ class _LoginBodyState extends State<LoginBody> {
                 children: [
                   Expanded(
                     child: TextFormField(
+                      style: TextStyle(color: Colors.black),
                       controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
