@@ -81,6 +81,7 @@ class _BottommBarState extends State<BottommBar> {
             label: 'Tài khoản',
           ),
         ],
+        selectedItemColor: Colors.black,
       ),
     );
   }

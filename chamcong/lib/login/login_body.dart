@@ -91,10 +91,7 @@ class _LoginBodyState extends State<LoginBody> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/images/bg1.jpg'),
-          fit: BoxFit.cover,
-        ),
+    color: Color(0x00ededf2),
       ),
       child: Padding(
         padding: EdgeInsets.all(16.0.sp),
@@ -103,46 +100,49 @@ class _LoginBodyState extends State<LoginBody> {
             SizedBox(
               height: 60.sp,
             ),
-            Text(
-              'Đăng nhập',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 22.sp,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w400,
-                height: 0.06.sp,
+            const Text(
+                'Đăng nhập',
+                style: TextStyle(
+                  color: Color(0xFF2E2E2E),
+                  fontSize: 20,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w500,
+                  height: 0,
+                ),
               ),
-            ),
             SizedBox(
               height: 80.sp,
             ),
             Container(
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.7.sp),
-                borderRadius: BorderRadius.circular(5.sp),
-              ),
+              decoration: ShapeDecoration(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              side: BorderSide(width: 1.sp, color: const Color(0xFF888888)),
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
               child: Row(
                 children: [
                   Expanded(
                     child: TextFormField(
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                       controller: usernameController,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.symmetric(horizontal: 10.sp),
                         border: notificatitonText.isEmpty
                             ? InputBorder.none
-                            : UnderlineInputBorder(
-                                borderSide: const BorderSide(color: Colors.red),
+                            : const UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.red),
                               ),
                         hintText: 'Tài khoản',
                         enabledBorder: notificatitonText.isEmpty
                             ? InputBorder.none
-                            : UnderlineInputBorder(
+                            : const UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.red),
                               ),
                         focusedBorder: notificatitonText.isEmpty
                             ? InputBorder.none
-                            : UnderlineInputBorder(
+                            : const UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.red),
                               ),
                       ),
@@ -153,33 +153,36 @@ class _LoginBodyState extends State<LoginBody> {
             ),
             SizedBox(height: 20.sp),
             Container(
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.7.sp),
-                borderRadius: BorderRadius.circular(5.sp),
-              ),
+              decoration: ShapeDecoration(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              side: BorderSide(width: 1.sp, color: const Color(0xFF888888)),
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
               child: Row(
                 children: [
                   Expanded(
                     child: TextFormField(
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                       controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.symmetric(horizontal: 10.sp),
                         border: notificatitonText.isEmpty
                             ? InputBorder.none
-                            : UnderlineInputBorder(
-                                borderSide: const BorderSide(color: Colors.red),
+                            : const UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.red),
                               ),
                         hintText: 'Mật khẩu',
                         enabledBorder: notificatitonText.isEmpty
                             ? InputBorder.none
-                            : UnderlineInputBorder(
+                            : const UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.red),
                               ),
                         focusedBorder: notificatitonText.isEmpty
                             ? InputBorder.none
-                            : UnderlineInputBorder(
+                            : const UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.red),
                               ),
                       ),
@@ -198,43 +201,42 @@ class _LoginBodyState extends State<LoginBody> {
               children: [
                 TextButton(
                   onPressed: handleForgotPasswordTap,
-                  child: Text(
-                    'Quên mật khẩu',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFF487E4E),
-                      fontSize: 14.sp,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w500,
-                      decoration: TextDecoration.underline,
-                      height: 0.10.sp,
-                      letterSpacing: 0.10.sp,
-                    ),
-                  ),
+                  child:const Text(
+                'Quên mật khẩu',
+                style: TextStyle(
+                  color: Color(0xFF9747FF),
+                  fontSize: 14,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w500,
+                  height: 0,
+                ),
+              ),
                 ),
               ],
             ),
             SizedBox(height: 30.sp),
             SizedBox(
               width: 320.sp,
+              height: 50.sp,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
+                  backgroundColor:const Color(0xFF9747FF),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
                 ),
                 onPressed: () {
                   validateLogin();
                 },
-                child: Text(
-                  'Đăng nhập',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14.sp,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 0.10.sp,
-                  ),
+                child:const Text(
+                'Đăng nhập',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w500,
+                  height: 0,
                 ),
+              ),
               ),
             ),
           ],
