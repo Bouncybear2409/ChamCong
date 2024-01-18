@@ -1,3 +1,4 @@
+import 'package:chamcong/app_images.dart';
 import 'package:chamcong/otp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,10 +30,12 @@ class VerifyPage extends StatelessWidget {
       ),
       body: Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/bg1.jpg'),
-            fit: BoxFit.cover,
-          ),
+       image: DecorationImage(
+              image: AssetImage(
+                AppImages.imgBG,
+              ),
+              fit: BoxFit.cover,
+            ),
         ),
         child: Stack(
           children: [

@@ -1,3 +1,4 @@
+import 'package:chamcong/app_images.dart';
 import 'package:chamcong/home/bottom_bar.dart';
 import 'package:chamcong/verify.dart';
 import 'package:flutter/material.dart';
@@ -91,7 +92,12 @@ class _LoginBodyState extends State<LoginBody> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-    color: Color(0x00ededf2),
+   image: DecorationImage(
+              image: AssetImage(
+                AppImages.imgBG,
+              ),
+              fit: BoxFit.cover,
+            ),
       ),
       child: Padding(
         padding: EdgeInsets.all(16.0.sp),
