@@ -1,4 +1,6 @@
 import 'package:chamcong/app_images.dart';
+import 'package:chamcong/email_check.dart';
+import 'package:chamcong/new_password.dart';
 import 'package:chamcong/otp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -94,6 +96,38 @@ class VerifyPage extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                  SizedBox(
+                    height: 20.sp,
+                  ),
+                  SizedBox(
+                    width: 320.sp,
+                    height: 50.sp,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF9747FF),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NewPassword(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Hoàn tất',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w500,
+                          height: 0,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:chamcong/app_images.dart';
+import 'package:chamcong/email_check.dart';
 import 'package:chamcong/home/bottom_bar.dart';
 import 'package:chamcong/verify.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _LoginBodyState extends State<LoginBody> {
   void handleForgotPasswordTap() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const VerifyPage()),
+      MaterialPageRoute(builder: (context) => const EmailCheck()),
     );
   }
 
@@ -92,12 +93,12 @@ class _LoginBodyState extends State<LoginBody> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-   image: DecorationImage(
-              image: AssetImage(
-                AppImages.imgBG,
-              ),
-              fit: BoxFit.cover,
-            ),
+        image: DecorationImage(
+          image: AssetImage(
+            AppImages.imgBG,
+          ),
+          fit: BoxFit.cover,
+        ),
       ),
       child: Padding(
         padding: EdgeInsets.all(16.0.sp),
@@ -107,26 +108,26 @@ class _LoginBodyState extends State<LoginBody> {
               height: 60.sp,
             ),
             const Text(
-                'Đăng nhập',
-                style: TextStyle(
-                  color: Color(0xFF2E2E2E),
-                  fontSize: 20,
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w500,
-                  height: 0,
-                ),
+              'Đăng nhập',
+              style: TextStyle(
+                color: Color(0xFF2E2E2E),
+                fontSize: 20,
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.w500,
+                height: 0,
               ),
+            ),
             SizedBox(
               height: 80.sp,
             ),
             Container(
               decoration: ShapeDecoration(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              side: BorderSide(width: 1.sp, color: const Color(0xFF888888)),
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(width: 1.sp, color: const Color(0xFF888888)),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
               child: Row(
                 children: [
                   Expanded(
@@ -160,12 +161,12 @@ class _LoginBodyState extends State<LoginBody> {
             SizedBox(height: 20.sp),
             Container(
               decoration: ShapeDecoration(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              side: BorderSide(width: 1.sp, color: const Color(0xFF888888)),
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(width: 1.sp, color: const Color(0xFF888888)),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
               child: Row(
                 children: [
                   Expanded(
@@ -207,16 +208,16 @@ class _LoginBodyState extends State<LoginBody> {
               children: [
                 TextButton(
                   onPressed: handleForgotPasswordTap,
-                  child:const Text(
-                'Quên mật khẩu',
-                style: TextStyle(
-                  color: Color(0xFF9747FF),
-                  fontSize: 14,
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w500,
-                  height: 0,
-                ),
-              ),
+                  child: const Text(
+                    'Quên mật khẩu',
+                    style: TextStyle(
+                      color: Color(0xFF9747FF),
+                      fontSize: 14,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w500,
+                      height: 0,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -226,23 +227,23 @@ class _LoginBodyState extends State<LoginBody> {
               height: 50.sp,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor:const Color(0xFF9747FF),
+                  backgroundColor: const Color(0xFF9747FF),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
                 ),
                 onPressed: () {
                   validateLogin();
                 },
-                child:const Text(
-                'Đăng nhập',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w500,
-                  height: 0,
+                child: const Text(
+                  'Đăng nhập',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w500,
+                    height: 0,
+                  ),
                 ),
-              ),
               ),
             ),
           ],

@@ -1,50 +1,16 @@
 import 'package:chamcong/app_images.dart';
-import 'package:chamcong/login/login_page.dart';
+import 'package:chamcong/new_password.dart';
+import 'package:chamcong/verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class NewPassword extends StatefulWidget {
-  const NewPassword({super.key});
-
-  @override
-  State<NewPassword> createState() => _NewPasswordState();
-}
-
-class _NewPasswordState extends State<NewPassword> {
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-  String notificatitonText = '';
-
-  bool checkCredentials(String password, String confirmPassword) {
-    return password == confirmPassword;
-  }
-
-  void validateLogin() {
-    String password = passwordController.text;
-    String confirmPassword = confirmPasswordController.text;
-    bool isValidLogin = checkCredentials(password, confirmPassword);
-
-    if (isValidLogin) {
-      setState(() {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const LoginPage()));
-      });
-    } else {
-      if (password.isEmpty || confirmPassword.isEmpty) {
-        setState(() {
-          notificatitonText = 'Vui lòng nhập đầy đủ thông tin.';
-        });
-      } else if (password.length < 8 || confirmPassword.length < 8) {
-        setState(() {
-          notificatitonText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
-        });
-      }
-    }
-  }
+class EmailCheck extends StatelessWidget {
+  const EmailCheck({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Center(
         child: Container(
           decoration: const BoxDecoration(
@@ -63,7 +29,7 @@ class _NewPasswordState extends State<NewPassword> {
                   height: 60.sp,
                 ),
                 const Text(
-                  'Tạo mật khẩu mới',
+                  'Nhập email nhân viên',
                   style: TextStyle(
                     color: Color(0xFF2E2E2E),
                     fontSize: 20,
@@ -90,55 +56,13 @@ class _NewPasswordState extends State<NewPassword> {
                     children: [
                       Expanded(
                         child: TextFormField(
-                          controller: passwordController,
-                          obscureText: true,
                           autofocus: false,
                           style: const TextStyle(color: Colors.black),
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             contentPadding:
                                 EdgeInsets.symmetric(horizontal: 10.sp),
-                            hintText: 'Nhập mật khẩu mới',
-                            hintStyle: const TextStyle(
-                              color: Color(0xFF888888),
-                              fontSize: 14,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.w400,
-                              height: 0,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 20.sp,
-                ),
-                Container(
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 1.sp,
-                        color: const Color(0xFF888888),
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          controller: confirmPasswordController,
-                          obscureText: true,
-                          autofocus: false,
-                          style: const TextStyle(color: Colors.black),
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            contentPadding:
-                                EdgeInsets.symmetric(horizontal: 10.sp),
-                            hintText: 'Nhập lại mật khẩu',
+                            hintText: 'Nhập email',
                             hintStyle: const TextStyle(
                               color: Color(0xFF888888),
                               fontSize: 14,
@@ -153,7 +77,6 @@ class _NewPasswordState extends State<NewPassword> {
                   ),
                 ),
                 SizedBox(height: 40.sp),
-                Text(notificatitonText),
                 SizedBox(
                   width: 320.sp,
                   height: 50.sp,
@@ -164,7 +87,12 @@ class _NewPasswordState extends State<NewPassword> {
                           borderRadius: BorderRadius.circular(15)),
                     ),
                     onPressed: () {
-                      validateLogin();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => VerifyPage(),
+                        ),
+                      );
                     },
                     child: const Text(
                       'Hoàn tất',
