@@ -1,5 +1,6 @@
 import 'package:chamcong/otp.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class VerifyPage extends StatelessWidget {
   const VerifyPage({Key? key}) : super(key: key);
@@ -8,17 +9,19 @@ class VerifyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        title: Row(
           children: [
+            SizedBox(
+              width: 80.sp,
+            ),
             Text(
               'Verify',
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 22,
+                fontSize: 22.sp,
                 fontFamily: 'Roboto',
                 fontWeight: FontWeight.w400,
-                height: 0.06,
+                height: 0.06.sp,
               ),
             ),
           ],
@@ -34,18 +37,18 @@ class VerifyPage extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 60, 16, 16),
+              padding: EdgeInsets.fromLTRB(16.sp, 60.sp, 16.sp, 16.sp),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     'Enter the 6 digits code that you received on your mailbox.',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.sp),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -57,33 +60,33 @@ class VerifyPage extends StatelessWidget {
                       OtpTextField(),
                     ],
                   ),
-                  const SizedBox(height: 100),
+                  SizedBox(height: 100.sp),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
+                      Text(
                         'Don’t receive code?',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontFamily: 'Roboto',
                           fontWeight: FontWeight.w500,
                           decoration: TextDecoration.underline,
-                          height: 0.10,
-                          letterSpacing: 0.10,
+                          height: 0.10.sp,
+                          letterSpacing: 0.10.sp,
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      SizedBox(width: 10.sp),
                       GestureDetector(
-                        child: const Text(
+                        child: Text(
                           'Resend',
                           style: TextStyle(
                             color: Color(0xFF487E4E),
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w500,
-                            height: 0.10,
-                            letterSpacing: 0.10,
+fontWeight: FontWeight.w500,
+                            height: 0.10.sp,
+                            letterSpacing: 0.10.sp,
                           ),
                         ),
                       ),
