@@ -16,7 +16,11 @@ class _NewPasswordState extends State<NewPassword> {
   String notificatitonText = '';
 
   bool checkCredentials(String password, String confirmPassword) {
-    return password == confirmPassword;
+    if (password.isEmpty || confirmPassword.isEmpty) {
+      return false;
+    } else {
+      return password == confirmPassword;
+    }
   }
 
   void validateLogin() {
@@ -37,6 +41,10 @@ class _NewPasswordState extends State<NewPassword> {
       } else if (password.length < 8 || confirmPassword.length < 8) {
         setState(() {
           notificatitonText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
+        });
+      } else {
+        setState(() {
+          notificatitonText = 'Mật khẩu không giống nhau!';
         });
       }
     }
@@ -153,7 +161,10 @@ class _NewPasswordState extends State<NewPassword> {
                   ),
                 ),
                 SizedBox(height: 40.sp),
-                Text(notificatitonText),
+                Text(
+                  notificatitonText,
+                  style: TextStyle(color: Colors.red),
+                ),
                 SizedBox(
                   width: 320.sp,
                   height: 50.sp,
