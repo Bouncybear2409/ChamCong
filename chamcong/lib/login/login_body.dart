@@ -60,7 +60,7 @@ class _LoginBodyState extends State<LoginBody> {
           title: Text(
             'Bị khóa đăng nhập',
             style: TextStyle(
-              color: Color(0xFF2C2C2C),
+              color: const Color(0xFF2C2C2C),
               fontSize: 24.sp,
               fontFamily: 'Roboto',
               fontWeight: FontWeight.w400,
@@ -69,7 +69,7 @@ class _LoginBodyState extends State<LoginBody> {
           content: Text(
             'Bạn đã nhập sai tài khoản hoặc mật khẩu quá nhiều lần. Bạn bị khóa đăng nhập trong 5 phút. Vui lòng đăng nhập lại sau 5 phút.',
             style: TextStyle(
-              color: Color(0xFF49454F),
+              color: const Color(0xFF49454F),
               fontSize: 14.sp,
               fontFamily: 'Roboto',
               fontWeight: FontWeight.w400,

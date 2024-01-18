@@ -57,22 +57,32 @@ class _BottommBarState extends State<BottommBar> {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(
+              Icons.check,
+              color: Colors.black,
+              size: 20,
+            ),
+            label: 'Trang chủ',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(
+              Icons.mail_outline,
+              color: Colors.black,
+              size: 20,
+            ),
+            label: 'Đơn nghỉ',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
+            icon: Icon(Icons.access_time, color: Colors.black, size: 20),
+            label: 'Lịch sử',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.account_circle, color: Colors.black, size: 20),
+            label: 'Tài khoản',
           ),
         ],
+        selectedLabelStyle: const TextStyle(color: Color.fromARGB(255, 225, 24, 24)),
+        unselectedLabelStyle: const TextStyle(color: Color.fromARGB(255, 6, 79, 225)),
       ),
     );
   }
