@@ -1,4 +1,4 @@
-import 'package:chamcong/home/home_page.dart';
+import 'package:chamcong/home/bottom_bar.dart';
 import 'package:chamcong/verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,7 +35,7 @@ class _LoginBodyState extends State<LoginBody> {
     if (isValidLogin) {
       setState(() {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const MyHomePage()));
+            MaterialPageRoute(builder: (context) => const BottommBar()));
       });
     } else {
       if (username.isEmpty || password.isEmpty) {
