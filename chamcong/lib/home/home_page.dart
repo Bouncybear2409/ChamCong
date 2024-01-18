@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff9747FF),
+        backgroundColor: const Color(0xff9747FF),
         leading: const Text(''),
         centerTitle: true,
         title: const Text('Trang chủ'),
@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 20.sp, right: 15.sp),
                       child: Image(
-                        image: AssetImage(
+                        image: const AssetImage(
                           AppImages.imgAvatar,
                         ),
                         height: 60.sp,
@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
                         Text(
                           'Trần Nhân Hiếu',
                           style: TextStyle(
-                            color: Color(0xFF2E2E2E),
+                            color: const Color(0xFF2E2E2E),
                             fontSize: 18.sp,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w500,
@@ -78,7 +78,7 @@ class HomePage extends StatelessWidget {
                         Text(
                           'Nhân viên IT',
                           style: TextStyle(
-                            color: Color(0xFF595959),
+                            color: const Color(0xFF595959),
                             fontSize: 15.sp,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w400,
@@ -103,7 +103,7 @@ class HomePage extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        shadows: [
+                        shadows: const [
                           BoxShadow(
                             color: Color(0x3F8B8B8B),
                             blurRadius: 10,
@@ -112,7 +112,7 @@ class HomePage extends StatelessWidget {
                           )
                         ],
                       ),
-                      child: Text.rich(
+                      child: const Text.rich(
                         TextSpan(
                           children: [
                             TextSpan(
@@ -174,7 +174,7 @@ class HomePage extends StatelessWidget {
               Text(
                 '${DateTime.now().hour > 12 ? DateTime.now().hour - 12 : DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, '0')} ${DateTime.now().hour >= 12 ? 'PM' : 'AM'}',
                 style: TextStyle(
-                  color: Color(0xFF2E2E2E),
+                  color: const Color(0xFF2E2E2E),
                   fontSize: 20.sp,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w500,
@@ -185,7 +185,7 @@ class HomePage extends StatelessWidget {
               Text(
                 '${_getDayOfWeek(DateTime.now().weekday)}, ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
                 style: TextStyle(
-                  color: Color(0xFF2C2C2C),
+                  color: const Color(0xFF2C2C2C),
                   fontSize: 15.sp,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w400,
@@ -201,7 +201,7 @@ class HomePage extends StatelessWidget {
               height: 50.sp,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xff9747FF),
+                  backgroundColor: const Color(0xff9747FF),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                 ),

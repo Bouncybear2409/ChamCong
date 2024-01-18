@@ -29,7 +29,7 @@ class _BottommBarState extends State<BottommBar> {
           Container(
             color: Colors.green,
             child: const Center(
-              child: Text("Settings Page"),
+              child: Text("Absence Page"),
             ),
           ),
           Container(

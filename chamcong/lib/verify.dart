@@ -9,94 +9,85 @@ class VerifyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: [
-            SizedBox(
-              width: 80.sp,
-            ),
-            Text(
-              'Verify',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 22.sp,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w400,
-                height: 0.06.sp,
-              ),
-            ),
-          ],
-        ),
-      ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/bg1.jpg'),
-            fit: BoxFit.cover,
+        title: Text(
+          'Nhập mã OTP',
+          style: TextStyle(
+            color: Color(0xFF2E2E2E),
+            fontSize: 20,
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.w500,
+            height: 0,
           ),
         ),
-        child: Stack(
-          children: [
-            Padding(
-              padding: EdgeInsets.fromLTRB(16.sp, 60.sp, 16.sp, 16.sp),
-              child: Column(
-                children: [
-                  Text(
-                    'Enter the 6 digits code that you received on your mailbox.',
+        centerTitle: true,
+      ),
+      body: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 47.sp, bottom: 30.sp),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: 291.sp,
+                  height: 52.sp,
+                  child: const Text(
+                    'Nhập vào 6 chữ số được gửi tới số điện thoại hoặc email của bạn',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 16.sp,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF4F4F4F),
+                      fontSize: 14,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
-                  SizedBox(height: 20.sp),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      OtpTextField(),
-                      OtpTextField(),
-                      OtpTextField(),
-                      OtpTextField(),
-                      OtpTextField(),
-                      OtpTextField(),
-                    ],
-                  ),
-                  SizedBox(height: 100.sp),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Don’t receive code?',
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    OtpTextField(),
+                    OtpTextField(),
+                    OtpTextField(),
+                    OtpTextField(),
+                    OtpTextField(),
+                    OtpTextField(),
+                  ],
+                ),
+                SizedBox(height: 100.sp),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Don’t receive code?',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14.sp,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w500,
+                        decoration: TextDecoration.underline,
+                        height: 0.10.sp,
+                        letterSpacing: 0.10.sp,
+                      ),
+                    ),
+                    SizedBox(width: 10.sp),
+                    GestureDetector(
+                      child: Text(
+                        'Resend',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Color(0xFF487E4E),
                           fontSize: 14.sp,
                           fontFamily: 'Roboto',
                           fontWeight: FontWeight.w500,
-                          decoration: TextDecoration.underline,
                           height: 0.10.sp,
                           letterSpacing: 0.10.sp,
                         ),
                       ),
-                      SizedBox(width: 10.sp),
-                      GestureDetector(
-                        child: Text(
-                          'Resend',
-                          style: TextStyle(
-                            color: Color(0xFF487E4E),
-                            fontSize: 14.sp,
-                            fontFamily: 'Roboto',
-fontWeight: FontWeight.w500,
-                            height: 0.10.sp,
-                            letterSpacing: 0.10.sp,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
