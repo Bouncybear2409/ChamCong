@@ -1,7 +1,6 @@
 import 'package:chamcong/app_images.dart';
 import 'package:chamcong/email_check.dart';
 import 'package:chamcong/home/bottom_bar.dart';
-import 'package:chamcong/verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

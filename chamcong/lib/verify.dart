@@ -1,5 +1,4 @@
 import 'package:chamcong/app_images.dart';
-import 'package:chamcong/email_check.dart';
 import 'package:chamcong/new_password.dart';
 import 'package:chamcong/otp.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +85,7 @@ class VerifyPage extends StatelessWidget {
                         child: Text(
                           'Resend',
                           style: TextStyle(
-                            color: Color(0xFF487E4E),
+                            color: const Color(0xFF487E4E),
                             fontSize: 14.sp,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w500,
@@ -113,7 +112,7 @@ class VerifyPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => NewPassword(),
+                            builder: (context) => const NewPassword(),
                           ),
                         );
                       },
