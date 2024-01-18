@@ -81,8 +81,6 @@ class _BottommBarState extends State<BottommBar> {
             label: 'Tài khoản',
           ),
         ],
-        selectedLabelStyle: const TextStyle(color: Color.fromARGB(255, 225, 24, 24)),
-        unselectedLabelStyle: const TextStyle(color: Color.fromARGB(255, 6, 79, 225)),
       ),
     );
   }
