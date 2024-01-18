@@ -9,10 +9,8 @@ class VerifyPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 80,
-            ),
             Text(
               'Verify',
               style: TextStyle(

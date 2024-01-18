@@ -1,5 +1,6 @@
 import 'package:chamcong/home.dart';
 import 'package:chamcong/login.dart';
+import 'package:chamcong/myhome.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Login',
-      home: Home(),
+      home:MyHomePage(),
     );
   }
 }
