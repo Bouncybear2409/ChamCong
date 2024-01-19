@@ -1,6 +1,4 @@
 import 'package:chamcong/login/login_page.dart';
-import 'package:chamcong/forgot_password/email_check.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

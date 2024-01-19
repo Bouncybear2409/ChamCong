@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xff9747FF),
+        backgroundColor: const Color(0xff69B293),
         leading: const Text(''),
         centerTitle: true,
         title: const Text('Trang chủ'),
@@ -201,7 +201,7 @@ class HomePage extends StatelessWidget {
               height: 50.sp,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff9747FF),
+                  backgroundColor: const Color(0xff69B293),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                 ),

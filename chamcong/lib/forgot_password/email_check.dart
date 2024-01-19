@@ -1,4 +1,3 @@
-import 'package:chamcong/app_images.dart';
 import 'package:chamcong/forgot_password/verify/verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

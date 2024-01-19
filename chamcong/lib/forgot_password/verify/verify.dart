@@ -1,5 +1,3 @@
-import 'package:chamcong/app_images.dart';
-import 'package:chamcong/forgot_password/email_check.dart';
 import 'package:chamcong/new_pass/new_password.dart';
 import 'package:chamcong/forgot_password/verify/otp.dart';
 import 'package:flutter/material.dart';
@@ -12,50 +10,48 @@ class VerifyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: [
-            SizedBox(
-              width: 80.sp,
-            ),
-            Text(
-              'Verify',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 22.sp,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w400,
-                height: 0.06.sp,
-              ),
-            ),
-          ],
-        ),
-      ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              AppImages.imgBG,
-            ),
-            fit: BoxFit.cover,
+        centerTitle: true,
+        title: Text(
+          'Nhập mã OTP',
+          style: TextStyle(
+            color: Color(0xFF2E2E2E),
+            fontSize: 20,
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.w500,
+            height: 0,
           ),
         ),
-        child: Stack(
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: EdgeInsets.fromLTRB(16.sp, 60.sp, 16.sp, 16.sp),
-              child: Column(
-                children: [
-                  Text(
-                    'Enter the 6 digits code that you received on your mailbox.',
+            Column(
+              children: [
+                SizedBox(
+                  height: 47.sp,
+                ),
+                SizedBox(
+                  width: 291.sp,
+                  child: const Text(
+                    'Nhập vào 6 chữ số được gửi tới số điện thoại hoặc email của bạn',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 16.sp,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF4F4F4F),
+                      fontSize: 14,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
-                  SizedBox(height: 20.sp),
-                  const Row(
+                ),
+                SizedBox(height: 30.sp),
+                Container(
+                  width: 280.sp,
+                  height: 30.sp,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       OtpTextField(),
                       OtpTextField(),
@@ -65,72 +61,92 @@ class VerifyPage extends StatelessWidget {
                       OtpTextField(),
                     ],
                   ),
-                  SizedBox(height: 100.sp),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                SizedBox(height: 30.sp),
+                Text(
+                  'Mã OTP bạn vừa nhập không đúng',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFFF96F6F),
+                    fontSize: 14.sp,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                SizedBox(height: 30.sp),
+                Text(
+                  'Mã sẽ hết hạn sau 59s',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFF4F4F4F),
+                    fontSize: 14.sp,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                SizedBox(height: 30.sp),
+                const Text.rich(
+                  TextSpan(
                     children: [
-                      Text(
-                        'Don’t receive code?',
+                      TextSpan(
+                        text: 'Không nhận được mã? ',
                         style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14.sp,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w500,
-                          decoration: TextDecoration.underline,
-                          height: 0.10.sp,
-                          letterSpacing: 0.10.sp,
-                        ),
-                      ),
-                      SizedBox(width: 10.sp),
-                      GestureDetector(
-                        child: Text(
-                          'Resend',
-                          style: TextStyle(
-                            color: Color(0xFF487E4E),
-                            fontSize: 14.sp,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w500,
-                            height: 0.10.sp,
-                            letterSpacing: 0.10.sp,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20.sp,
-                  ),
-                  SizedBox(
-                    width: 320.sp,
-                    height: 50.sp,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF9747FF),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => NewPassword(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        'Hoàn tất',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
+                          color: Color(0xFF595959),
+                          fontSize: 14,
                           fontFamily: 'Roboto',
                           fontWeight: FontWeight.w500,
                           height: 0,
                         ),
                       ),
+                      TextSpan(
+                        text: 'Gửi lại',
+                        style: TextStyle(
+                          color: Color(0xFF68B193),
+                          fontSize: 14,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w500,
+                          height: 0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                SizedBox(
+                  width: 320.sp,
+                  height: 50.sp,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF69B293),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.sp)),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NewPassword(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Hoàn tất',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.sp,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
-                ],
-              ),
+                ),
+                SizedBox(
+                  height: 20.sp,
+                ),
+              ],
             ),
           ],
         ),

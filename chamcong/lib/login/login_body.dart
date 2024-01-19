@@ -1,4 +1,3 @@
-import 'package:chamcong/app_images.dart';
 import 'package:chamcong/forgot_password/email_check.dart';
 import 'package:chamcong/bottom_bar.dart';
 import 'package:flutter/material.dart';
