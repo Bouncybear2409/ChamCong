@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import 'package:chamcong/home/bottom_bar.dart';
+=======
+>>>>>>> 96a226bf2a0e0084ea84991065cef2373c30d40b
 import 'package:chamcong/forgot_password/email_check.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
