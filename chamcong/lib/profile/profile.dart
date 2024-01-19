@@ -1,23 +1,75 @@
-import 'dart:ffi';
-
 import 'package:chamcong/app_images.dart';
+import 'package:chamcong/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  void LogoutAlert() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Text(
+          'Đăng xuất',
+          style: TextStyle(
+            color: const Color(0xFF2C2C2C),
+            fontSize: 24.sp,
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        content: Text(
+          'Bạn có chắc muốn đăng xuất.',
+          style: TextStyle(
+            color: const Color(0xFF49454F),
+            fontSize: 14.sp,
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.w400,
+            letterSpacing: 0.25,
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.pop(context, 'OK'),
+            child: const Text('Quay lại'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => LoginPage(),
+              ),
+            ),
+            child: const Text(
+              'Đăng xuất',
+              style: TextStyle(
+                color: Color(0xffF96F6F),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const Text(''),
         centerTitle: true,
         backgroundColor: const Color(0xFF68B193),
         title: Text(
           'Tài khoản',
           style: TextStyle(
             color: Color(0xFFF2F2F2),
-            fontSize: 20,
+            fontSize: 20.sp,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w500,
             height: 0,
@@ -185,7 +237,9 @@ class ProfilePage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        LogoutAlert();
+                      },
                       child: const Text(
                         'Đăng xuất',
                         style: TextStyle(
