@@ -1,7 +1,7 @@
 import 'package:chamcong/app_images.dart';
-import 'package:chamcong/email_check.dart';
-import 'package:chamcong/new_password.dart';
-import 'package:chamcong/otp.dart';
+import 'package:chamcong/forgot_password/email_check.dart';
+import 'package:chamcong/new_pass/new_password.dart';
+import 'package:chamcong/forgot_password/verify/otp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

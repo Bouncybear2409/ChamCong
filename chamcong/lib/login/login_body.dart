@@ -1,7 +1,6 @@
 import 'package:chamcong/app_images.dart';
-import 'package:chamcong/email_check.dart';
-import 'package:chamcong/home/bottom_bar.dart';
-import 'package:chamcong/verify.dart';
+import 'package:chamcong/forgot_password/email_check.dart';
+import 'package:chamcong/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -91,163 +90,159 @@ class _LoginBodyState extends State<LoginBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(
-            AppImages.imgBG,
+    return Padding(
+      padding: EdgeInsets.all(16.0.sp),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 60.sp,
           ),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(16.0.sp),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 60.sp,
+          Text(
+            'Đăng nhập',
+            style: TextStyle(
+              color: Color(0xFF2E2E2E),
+              fontSize: 20.sp,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w500,
+              height: 0,
             ),
-            const Text(
-              'Đăng nhập',
-              style: TextStyle(
-                color: Color(0xFF2E2E2E),
-                fontSize: 20,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w500,
-                height: 0,
+          ),
+          SizedBox(
+            height: 80.sp,
+          ),
+          Container(
+            decoration: ShapeDecoration(
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(width: 0.5.sp, color: const Color(0xFF888888)),
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
-            SizedBox(
-              height: 80.sp,
-            ),
-            Container(
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(width: 1.sp, color: const Color(0xFF888888)),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                      style: const TextStyle(color: Colors.black),
-                      controller: usernameController,
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 10.sp),
-                        border: notificatitonText.isEmpty
-                            ? InputBorder.none
-                            : const UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
-                              ),
-                        hintText: 'Tài khoản',
-                        enabledBorder: notificatitonText.isEmpty
-                            ? InputBorder.none
-                            : const UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
-                              ),
-                        focusedBorder: notificatitonText.isEmpty
-                            ? InputBorder.none
-                            : const UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
-                              ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 20.sp),
-            Container(
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(width: 1.sp, color: const Color(0xFF888888)),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                      style: const TextStyle(color: Colors.black),
-                      controller: passwordController,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 10.sp),
-                        border: notificatitonText.isEmpty
-                            ? InputBorder.none
-                            : const UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
-                              ),
-                        hintText: 'Mật khẩu',
-                        enabledBorder: notificatitonText.isEmpty
-                            ? InputBorder.none
-                            : const UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
-                              ),
-                        focusedBorder: notificatitonText.isEmpty
-                            ? InputBorder.none
-                            : const UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.red),
-                              ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 20.sp),
-            Text(
-              notificatitonText,
-              style: const TextStyle(color: Colors.red),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+            child: Row(
               children: [
-                TextButton(
-                  onPressed: handleForgotPasswordTap,
-                  child: const Text(
-                    'Quên mật khẩu',
-                    style: TextStyle(
-                      color: Color(0xFF9747FF),
-                      fontSize: 14,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w500,
-                      height: 0,
+                Expanded(
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    controller: usernameController,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10.sp),
+                      border: notificatitonText.isEmpty
+                          ? InputBorder.none
+                          : OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.sp),
+                              borderSide: BorderSide(color: Colors.red),
+                            ),
+                      hintText: 'Tài khoản',
+                      enabledBorder: notificatitonText.isEmpty
+                          ? InputBorder.none
+                          : OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.sp),
+                              borderSide: BorderSide(color: Colors.red),
+                            ),
+                      focusedBorder: notificatitonText.isEmpty
+                          ? InputBorder.none
+                          : OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.sp),
+                              borderSide: BorderSide(color: Colors.red),
+                            ),
                     ),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 30.sp),
-            SizedBox(
-              width: 320.sp,
-              height: 50.sp,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF9747FF),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
+          ),
+          SizedBox(height: 20.sp),
+          Container(
+            decoration: ShapeDecoration(
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(width: 0.5.sp, color: const Color(0xFF888888)),
+                borderRadius: BorderRadius.circular(10.sp),
+              ),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.black),
+                    controller: passwordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10.sp),
+                      border: notificatitonText.isEmpty
+                          ? InputBorder.none
+                          : OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.sp),
+                              borderSide: BorderSide(color: Colors.red),
+                            ),
+                      hintText: 'Mật khẩu',
+                      enabledBorder: notificatitonText.isEmpty
+                          ? InputBorder.none
+                          : OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.sp),
+                              borderSide: BorderSide(color: Colors.red),
+                            ),
+                      focusedBorder: notificatitonText.isEmpty
+                          ? InputBorder.none
+                          : OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.sp),
+                              borderSide: BorderSide(color: Colors.red),
+                            ),
+                    ),
+                  ),
                 ),
-                onPressed: () {
-                  validateLogin();
-                },
-                child: const Text(
-                  'Đăng nhập',
+              ],
+            ),
+          ),
+          SizedBox(height: 20.sp),
+          Text(
+            notificatitonText,
+            style: const TextStyle(color: Colors.red),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              TextButton(
+                onPressed: handleForgotPasswordTap,
+                child: Text(
+                  'Quên mật khẩu',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
+                    color: Color(0xFF497F4E),
+                    fontSize: 14.sp,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w500,
                     height: 0,
                   ),
                 ),
               ),
+            ],
+          ),
+          SizedBox(height: 30.sp),
+          SizedBox(
+            width: 320.sp,
+            height: 50.sp,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF497F4E),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
+              ),
+              onPressed: () {
+                validateLogin();
+              },
+              child: Text(
+                'Đăng nhập',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.sp,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w500,
+                  height: 0.sp,
+                ),
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
