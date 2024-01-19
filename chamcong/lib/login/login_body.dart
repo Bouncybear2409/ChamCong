@@ -35,7 +35,7 @@ class _LoginBodyState extends State<LoginBody> {
     if (isValidLogin) {
       setState(() {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const BottommBar()));
+            MaterialPageRoute(builder: (context) => const BottomBar()));
       });
     } else {
       if (username.isEmpty || password.isEmpty) {

@@ -1,88 +1,152 @@
 import 'package:chamcong/home/home_page.dart';
 import 'package:flutter/material.dart';
 
-class BottommBar extends StatefulWidget {
-  const BottommBar({super.key});
+class BottomBar extends StatefulWidget {
+  const BottomBar({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _BottommBarState createState() => _BottommBarState();
+  State<BottomBar> createState() => _BottomBarState();
 }
 
-class _BottommBarState extends State<BottommBar> {
-  // ignore: prefer_final_fields
-  PageController _pageController = PageController();
-  int _currentIndex = 0;
+class _BottomBarState extends State<BottomBar> {
+  int currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
           setState(() {
-            _currentIndex = index;
+            currentPageIndex = index;
           });
         },
-        children: [
-          const HomePage(),
-          Container(
-            color: Colors.green,
-            child: const Center(
-              child: Text("Absence Page"),
-            ),
-          ),
-          Container(
-            color: Colors.orange,
-            child: const Center(
-              child: Text("Notifications Page"),
-            ),
-          ),
-          Container(
-            color: Colors.purple,
-            child: const Center(
-              child: Text("Profile Page"),
-            ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          _pageController.animateToPage(
-            index,
-            duration: const Duration(milliseconds: 500),
-            curve: Curves.easeInOut,
-          );
-        },
-        items: const [
-          BottomNavigationBarItem(
+        indicatorColor: Color(0xff69B293),
+        selectedIndex: currentPageIndex,
+        destinations: const <Widget>[
+          NavigationDestination(
+            selectedIcon: Icon(Icons.check, color: Colors.white),
             icon: Icon(
               Icons.check,
-              color: Colors.black,
               size: 20,
             ),
             label: 'Trang chủ',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
+          NavigationDestination(
+            selectedIcon: Icon(Icons.mail_outline, color: Colors.white),
+            icon: Badge(
+                child: Icon(
               Icons.mail_outline,
-              color: Colors.black,
               size: 20,
-            ),
+            )),
             label: 'Đơn nghỉ',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.access_time, color: Colors.black, size: 20),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.access_time, color: Colors.white),
+            icon: Icon(
+              Icons.access_time,
+              size: 20,
+            ),
             label: 'Lịch sử',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle, color: Colors.black, size: 20),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.account_circle, color: Colors.white),
+            icon: Icon(Icons.account_circle),
             label: 'Tài khoản',
           ),
         ],
-        selectedItemColor: Colors.black,
       ),
+      body: <Widget>[
+        /// Home page
+        HomePage(),
+
+        /// Notifications page
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Column(
+            children: <Widget>[
+              Card(
+                child: ListTile(
+                  leading: Icon(Icons.notifications_sharp),
+                  title: Text('Notification 1'),
+                  subtitle: Text('This is a notification'),
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  leading: Icon(Icons.notifications_sharp),
+                  title: Text('Notification 2'),
+                  subtitle: Text('This is a notification'),
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        /// Messages page
+        ListView.builder(
+          reverse: true,
+          itemCount: 2,
+          itemBuilder: (BuildContext context, int index) {
+            if (index == 0) {
+              return Align(
+                alignment: Alignment.centerRight,
+                child: Container(
+                  margin: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.primary,
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: Text(
+                    'Hello',
+                    style: theme.textTheme.bodyLarge!
+                        .copyWith(color: theme.colorScheme.onPrimary),
+                  ),
+                ),
+              );
+            }
+            return Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                margin: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.primary,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Text(
+                  'Hi!',
+                  style: theme.textTheme.bodyLarge!
+                      .copyWith(color: theme.colorScheme.onPrimary),
+                ),
+              ),
+            );
+          },
+        ),
+
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Column(
+            children: <Widget>[
+              Card(
+                child: ListTile(
+                  leading: Icon(Icons.notifications_sharp),
+                  title: Text('Notification 1'),
+                  subtitle: Text('This is a notification'),
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  leading: Icon(Icons.notifications_sharp),
+                  title: Text('Notification 2'),
+                  subtitle: Text('This is a notification'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ][currentPageIndex],
     );
   }
 }
