@@ -5,5 +5,5 @@ class AppImages {
   // png type
   static const String imgAvatar = '$_imageAssets/avatar.png';
   static const String imgBG = '$_imageAssets/bg.jpg';
-
+  static const String imgAvatarProfile = '$_imageAssets/avatar_profile.png';
 }

@@ -1,5 +1,6 @@
-import 'package:chamcong/forgot_password/email_check.dart';
 import 'package:chamcong/home/bottom_bar.dart';
+
+import 'package:chamcong/forgot_password/email_check.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,7 +36,7 @@ class _LoginBodyState extends State<LoginBody> {
     if (isValidLogin) {
       setState(() {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const BottommBar()));
+            MaterialPageRoute(builder: (context) => const BottomBar()));
       });
     } else {
       if (username.isEmpty || password.isEmpty) {
@@ -99,7 +100,7 @@ class _LoginBodyState extends State<LoginBody> {
           Text(
             'Đăng nhập',
             style: TextStyle(
-              color: Color(0xFF2E2E2E),
+              color: const Color(0xFF2E2E2E),
               fontSize: 20.sp,
               fontFamily: 'Roboto',
               fontWeight: FontWeight.w500,
@@ -129,20 +130,20 @@ class _LoginBodyState extends State<LoginBody> {
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: BorderSide(color: Colors.red),
+                              borderSide: const BorderSide(color: Colors.red),
                             ),
                       hintText: 'Tài khoản',
                       enabledBorder: notificatitonText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: BorderSide(color: Colors.red),
+                              borderSide: const BorderSide(color: Colors.red),
                             ),
                       focusedBorder: notificatitonText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: BorderSide(color: Colors.red),
+                              borderSide: const BorderSide(color: Colors.red),
                             ),
                     ),
                   ),
@@ -172,20 +173,20 @@ class _LoginBodyState extends State<LoginBody> {
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: BorderSide(color: Colors.red),
+                              borderSide: const BorderSide(color: Colors.red),
                             ),
                       hintText: 'Mật khẩu',
                       enabledBorder: notificatitonText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: BorderSide(color: Colors.red),
+                              borderSide: const BorderSide(color: Colors.red),
                             ),
                       focusedBorder: notificatitonText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: BorderSide(color: Colors.red),
+                              borderSide: const BorderSide(color: Colors.red),
                             ),
                     ),
                   ),
@@ -206,7 +207,7 @@ class _LoginBodyState extends State<LoginBody> {
                 child: Text(
                   'Quên mật khẩu',
                   style: TextStyle(
-                    color: Color(0xFF497F4E),
+                    color: const Color(0xFF497F4E),
                     fontSize: 14.sp,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w500,
