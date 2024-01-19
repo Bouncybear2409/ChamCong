@@ -11,158 +11,186 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: const Color(0xFF68B193),
-        title: const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'Tài khoản',
-              style: TextStyle(
-                color: Color(0xFFF2F2F2),
-                fontSize: 20,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w500,
-                height: 0,
-              ),
-            ),
-          ],
+        title: Text(
+          'Tài khoản',
+          style: TextStyle(
+            color: Color(0xFFF2F2F2),
+            fontSize: 20,
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.w500,
+            height: 0,
+          ),
         ),
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
-              height: 22.sp,
-            ),
-            Container(
-              width: 150.sp,
-              height: 150.sp,
-              decoration: const ShapeDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    AppImages.imgAvatar,
-                  ),
-                  fit: BoxFit.fill,
+            Column(
+              children: [
+                SizedBox(
+                  height: 22.sp,
                 ),
-                shape: OvalBorder(),
-              ),
-            ),
-            SizedBox(
-              height: 15.sp,
-            ),
-            const SizedBox(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Trần Nhân Hiếu',
-                    style: TextStyle(
-                      color: Color(0xFF2E2E2E),
-                      fontSize: 22,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w700,
-                      height: 0,
+                Container(
+                  width: 150.sp,
+                  height: 150.sp,
+                  decoration: ShapeDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(AppImages.imgAvatarProfile),
                     ),
+                    shape: OvalBorder(),
                   ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 5.sp,
-            ),
-            const SizedBox(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Nhân viên IT',
-                    style: TextStyle(
-                      color: Color(0xFF595959),
-                      fontSize: 15,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w400,
-                      height: 0,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 22.sp,
-            ),
-            Container(
-              width: 322.sp,
-              height: 90.sp,
-              clipBehavior: Clip.antiAlias,
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
                 ),
-                shadows: const [
-                  BoxShadow(
-                    color: Color(0x33888888),
-                    blurRadius: 20,
-                    offset: Offset(0, 4),
-                    spreadRadius: 0,
-                  )
-                ],
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(8.sp, 30.sp, 8.sp, 8.sp),
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Email: moonlight@gmail.com',
-                          style: TextStyle(
-                            color: Color(0xFF595959),
-                            fontSize: 15,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w400,
-                            height: 0.13,
+                SizedBox(
+                  height: 15.sp,
+                ),
+                const SizedBox(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Trần Nhân Hiếu',
+                        style: TextStyle(
+                          color: Color(0xFF2E2E2E),
+                          fontSize: 22,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w700,
+                          height: 0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 5.sp,
+                ),
+                const SizedBox(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Nhân viên IT',
+                        style: TextStyle(
+                          color: Color(0xFF595959),
+                          fontSize: 15,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w400,
+                          height: 0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 22.sp,
+                ),
+                Container(
+                  width: 322.sp,
+                  height: 90.sp,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: ShapeDecoration(
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    shadows: const [
+                      BoxShadow(
+                        color: Color(0x33888888),
+                        blurRadius: 20,
+                        offset: Offset(0, 4),
+                        spreadRadius: 0,
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(8.sp, 30.sp, 8.sp, 8.sp),
+                        child: Column(
+                          children: [
+                            const Text(
+                              'Email: moonlight@gmail.com',
+                              style: TextStyle(
+                                color: Color(0xFF595959),
+                                fontSize: 15,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.w400,
+                                height: 0.13,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 30.sp,
+                            ),
+                            const Text(
+                              'Phone number: 0908998898',
+                              style: TextStyle(
+                                color: Color(0xFF595959),
+                                fontSize: 15,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.w400,
+                                height: 0.13,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // Phần nút ở bên phải
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF68B193),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                          onPressed: () {
+                            // Xử lý sự kiện khi nút được nhấn
+                          },
+                          child: const Text(
+                            'Sửa',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w500,
+                              height: 0,
+                            ),
                           ),
                         ),
-                        SizedBox(
-                          height: 30.sp,
-                        ),
-                        const Text(
-                          'Phone number: 0908998898',
-                          style: TextStyle(
-                            color: Color(0xFF595959),
-                            fontSize: 15,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w400,
-                            height: 0.13,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  // Phần nút ở bên phải
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(bottom: 25.sp),
+                  child: SizedBox(
+                    width: 320.sp,
+                    height: 50.sp,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF68B193),
+                        backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
-                      onPressed: () {
-                        // Xử lý sự kiện khi nút được nhấn
-                      },
+                      onPressed: () {},
                       child: const Text(
-                        'Sửa',
+                        'Đăng xuất',
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
+                          color: Color(0xFFF96F6F),
+                          fontSize: 18,
                           fontFamily: 'Roboto',
                           fontWeight: FontWeight.w500,
                           height: 0,
@@ -170,37 +198,8 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 100.sp,
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 30.sp),
-              child: SizedBox(
-                width: 320.sp,
-                height: 50.sp,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: const Text(
-                    'Đăng xuất',
-                    style: TextStyle(
-                      color: Color(0xFFF96F6F),
-                      fontSize: 18,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w500,
-                      height: 0,
-                    ),
-                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ),

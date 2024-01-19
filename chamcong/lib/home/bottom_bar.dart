@@ -1,4 +1,5 @@
 import 'package:chamcong/home/home_page.dart';
+import 'package:chamcong/profile/profile.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {
@@ -125,27 +126,7 @@ class _BottomBarState extends State<BottomBar> {
           },
         ),
 
-        const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            children: <Widget>[
-              Card(
-                child: ListTile(
-                  leading: Icon(Icons.notifications_sharp),
-                  title: Text('Notification 1'),
-                  subtitle: Text('This is a notification'),
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  leading: Icon(Icons.notifications_sharp),
-                  title: Text('Notification 2'),
-                  subtitle: Text('This is a notification'),
-                ),
-              ),
-            ],
-          ),
-        ),
+        ProfilePage(),
       ][currentPageIndex],
     );
   }
