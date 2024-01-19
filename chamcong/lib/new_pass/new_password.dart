@@ -1,4 +1,4 @@
-import 'package:chamcong/app_images.dart';
+
 import 'package:chamcong/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -53,21 +53,9 @@ class _NewPasswordState extends State<NewPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
-      appBar: AppBar(),
-      body: Center(
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                AppImages.imgBG,
-              ),
-              fit: BoxFit.cover,
-            ),
-=======
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Tạo mật khẩu mới',
           style: TextStyle(
             color: Color(0xFF2E2E2E),
@@ -75,7 +63,6 @@ class _NewPasswordState extends State<NewPassword> {
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w500,
             height: 0,
->>>>>>> 96a226bf2a0e0084ea84991065cef2373c30d40b
           ),
         ),
       ),
@@ -167,7 +154,7 @@ class _NewPasswordState extends State<NewPassword> {
                   SizedBox(height: 40.sp),
                   Text(
                     notificatitonText,
-                    style: TextStyle(color: Colors.red),
+                    style: const TextStyle(color: Colors.red),
                   ),
                 ],
               ),
