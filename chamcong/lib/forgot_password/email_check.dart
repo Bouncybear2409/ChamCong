@@ -1,5 +1,5 @@
-import 'package:chamcong/app_images.dart';
-import 'package:chamcong/verify.dart';
+
+import 'package:chamcong/forgot_password/verify/verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,36 +9,42 @@ class EmailCheck extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                AppImages.imgBG,
-              ),
-              fit: BoxFit.cover,
-            ),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          'Nhập email nhân viên',
+          style: TextStyle(
+            color: Color(0xFF2E2E2E),
+            fontSize: 20,
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.w500,
+            height: 0,
           ),
-          child: Padding(
-            padding: EdgeInsets.all(16.0.sp),
-            child: Column(
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0.sp),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
               children: [
                 SizedBox(
-                  height: 60.sp,
+                  height: 57.sp,
                 ),
-                const Text(
-                  'Nhập email nhân viên',
+                Text(
+                  'Hãy nhập email của bạn để chúng tôi gửi mã OTP',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Color(0xFF2E2E2E),
-                    fontSize: 20,
+                    color: Color(0xFF4F4F4F),
+                    fontSize: 14.sp,
                     fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w500,
-                    height: 0,
+                    fontWeight: FontWeight.w400,
+                    height: 0.13,
                   ),
                 ),
                 SizedBox(
-                  height: 40.sp,
+                  height: 34.sp,
                 ),
                 Container(
                   decoration: ShapeDecoration(
@@ -76,38 +82,41 @@ class EmailCheck extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 40.sp),
-                SizedBox(
-                  width: 320.sp,
-                  height: 50.sp,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF9747FF),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => VerifyPage(),
-                        ),
-                      );
-                    },
-                    child: const Text(
-                      'Hoàn tất',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w500,
-                        height: 0,
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom: 30.sp),
+              child: SizedBox(
+                width: 320.sp,
+                height: 50.sp,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF69B293),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const VerifyPage(),
                       ),
+                    );
+                  },
+                  child: const Text(
+                    'Hoàn tất',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w500,
+                      height: 0,
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
