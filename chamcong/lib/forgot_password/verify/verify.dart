@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import 'package:chamcong/app_images.dart';
+=======
+>>>>>>> 96a226bf2a0e0084ea84991065cef2373c30d40b
 import 'package:chamcong/new_pass/new_password.dart';
 import 'package:chamcong/forgot_password/verify/otp.dart';
 import 'package:flutter/material.dart';
@@ -91,8 +95,61 @@ class VerifyPage extends StatelessWidget {
                       TextSpan(
                         text: 'Không nhận được mã? ',
                         style: TextStyle(
+<<<<<<< HEAD
+                          color: Colors.black,
+                          fontSize: 14.sp,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w500,
+                          decoration: TextDecoration.underline,
+                          height: 0.10.sp,
+                          letterSpacing: 0.10.sp,
+                        ),
+                      ),
+                      SizedBox(width: 10.sp),
+                      GestureDetector(
+                        child: Text(
+                          'Resend',
+                          style: TextStyle(
+                            color: const Color(0xFF487E4E),
+                            fontSize: 14.sp,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w500,
+                            height: 0.10.sp,
+                            letterSpacing: 0.10.sp,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20.sp,
+                  ),
+                  SizedBox(
+                    width: 320.sp,
+                    height: 50.sp,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF9747FF),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const NewPassword(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Hoàn tất',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+=======
                           color: Color(0xFF595959),
                           fontSize: 14,
+>>>>>>> 96a226bf2a0e0084ea84991065cef2373c30d40b
                           fontFamily: 'Roboto',
                           fontWeight: FontWeight.w500,
                           height: 0,

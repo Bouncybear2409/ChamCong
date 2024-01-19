@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> 96a226bf2a0e0084ea84991065cef2373c30d40b
 import 'package:chamcong/forgot_password/verify/verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +14,7 @@ class EmailCheck extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Nhập email nhân viên',
           style: TextStyle(
             color: Color(0xFF2E2E2E),
@@ -98,7 +102,7 @@ class EmailCheck extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => VerifyPage(),
+                        builder: (context) => const VerifyPage(),
                       ),
                     );
                   },
