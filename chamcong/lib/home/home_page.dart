@@ -36,7 +36,10 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Trang chủ'),
+        title: Text(
+          'Trang chủ',
+          style: TextStyle(color: Colors.white),
+        ),
         flexibleSpace: AppbarComponent(),
         backgroundColor: Colors.transparent,
         centerTitle: true,

@@ -68,7 +68,10 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Tài khoản'),
+        title: Text(
+          'Tài khoản',
+          style: TextStyle(color: Colors.white),
+        ),
         flexibleSpace: AppbarComponent(),
         backgroundColor: Colors.transparent,
         centerTitle: true,
