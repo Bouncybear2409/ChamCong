@@ -26,7 +26,7 @@ class Absence extends StatelessWidget {
           children: [
             TextField(
               keyboardType: TextInputType.phone,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Color(0xFF2E2E2E)),
               decoration: InputDecoration(
                 filled: true,
                 fillColor: const Color(0xFFDADADA),
@@ -90,7 +90,7 @@ class Absence extends StatelessWidget {
             SizedBox(height: 20.sp),
             TextField(
               keyboardType: TextInputType.phone,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Color(0xFF2E2E2E)),
               decoration: InputDecoration(
                 filled: true,
                 fillColor: const Color(0xFFDADADA),
@@ -122,7 +122,7 @@ class Absence extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     keyboardType: TextInputType.phone,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Color(0xFF2E2E2E)),
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: const Color(0xFFDADADA),
@@ -153,7 +153,7 @@ class Absence extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     keyboardType: TextInputType.phone,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Color(0xFF2E2E2E)),
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: const Color(0xFFDADADA),
@@ -185,7 +185,7 @@ class Absence extends StatelessWidget {
             ),
             TextField(
               keyboardType: TextInputType.phone,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Color(0xFF2E2E2E)),
               decoration: InputDecoration(
                 filled: true,
                 fillColor: const Color(0xFFDADADA),
