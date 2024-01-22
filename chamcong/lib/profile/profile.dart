@@ -1,4 +1,5 @@
 import 'package:chamcong/app_images.dart';
+import 'package:chamcong/component/appbar/appbar.dart';
 import 'package:chamcong/component/button.dart/button.dart';
 import 'package:chamcong/login/login_page.dart';
 import 'package:flutter/material.dart';
@@ -65,6 +66,13 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text('Tài khoản'),
+        flexibleSpace: AppbarComponent(),
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+      ),
       backgroundColor: Colors.black,
       body: Center(
         child: Column(

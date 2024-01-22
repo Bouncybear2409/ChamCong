@@ -1,10 +1,9 @@
 import 'package:chamcong/app_images.dart';
 import 'package:chamcong/component/appbar/appbar.dart';
-import 'package:chamcong/component/background/background.dart';
+
 import 'package:chamcong/component/button.dart/button.dart';
 import 'package:chamcong/home/clock.dart';
 import 'package:flutter/material.dart';
-import 'package:analog_clock/analog_clock.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatelessWidget {
@@ -35,6 +34,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text('Trang chủ'),
+        flexibleSpace: AppbarComponent(),
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+      ),
       body: ListView(
         children: [
           Padding(
