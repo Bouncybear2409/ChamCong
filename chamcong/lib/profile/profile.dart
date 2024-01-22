@@ -1,4 +1,5 @@
 import 'package:chamcong/app_images.dart';
+import 'package:chamcong/component/button.dart/button.dart';
 import 'package:chamcong/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,23 +12,23 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  void LogoutAlert() {
+  void logoutAlert() {
     showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
+        backgroundColor: Colors.black,
         title: Text(
           'Đăng xuất',
           style: TextStyle(
-            color: const Color(0xFF2C2C2C),
             fontSize: 24.sp,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w400,
           ),
         ),
         content: Text(
-          'Bạn có chắc muốn đăng xuất.',
+          'Bạn có chắc muốn đăng xuất!',
           style: TextStyle(
-            color: const Color(0xFF49454F),
+            color: Color.fromARGB(255, 80, 80, 81),
             fontSize: 14.sp,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w400,
@@ -37,7 +38,10 @@ class _ProfilePageState extends State<ProfilePage> {
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.pop(context, 'OK'),
-            child: const Text('Quay lại'),
+            child: const Text(
+              'Quay lại',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
           TextButton(
             onPressed: () => Navigator.push(
@@ -61,21 +65,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const Text(''),
-        centerTitle: true,
-        backgroundColor: const Color(0xFF68B193),
-        title:  Text(
-          'Tài khoản',
-          style: TextStyle(
-            color: const Color(0xFFF2F2F2),
-            fontSize: 20.sp,
-            fontFamily: 'Roboto',
-            fontWeight: FontWeight.w500,
-            height: 0,
-          ),
-        ),
-      ),
+      backgroundColor: Colors.black,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,7 +97,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       Text(
                         'Trần Nhân Hiếu',
                         style: TextStyle(
-                          color: Color(0xFF2E2E2E),
                           fontSize: 22,
                           fontFamily: 'Roboto',
                           fontWeight: FontWeight.w700,
@@ -129,7 +118,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       Text(
                         'Nhân viên IT',
                         style: TextStyle(
-                          color: Color(0xFF595959),
                           fontSize: 15,
                           fontFamily: 'Roboto',
                           fontWeight: FontWeight.w400,
@@ -228,30 +216,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 25.sp),
                   child: SizedBox(
-                    width: 320.sp,
-                    height: 50.sp,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                      onPressed: () {
-                        LogoutAlert();
-                      },
-                      child: const Text(
-                        'Đăng xuất',
-                        style: TextStyle(
-                          color: Color(0xFFF96F6F),
-                          fontSize: 18,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w500,
-                          height: 0,
-                        ),
-                      ),
-                    ),
-                  ),
+                      width: 320.sp,
+                      height: 50.sp,
+                      child: ButtonComponent(
+                          Function: logoutAlert, text: 'Đăng xuất')),
                 ),
               ],
             ),
