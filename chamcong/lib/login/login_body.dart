@@ -95,20 +95,7 @@ class _LoginBodyState extends State<LoginBody> {
       child: Column(
         children: [
           SizedBox(
-            height: 60.sp,
-          ),
-          Text(
-            'Đăng nhập',
-            style: TextStyle(
-              color: Color.fromARGB(255, 255, 255, 255),
-              fontSize: 20.sp,
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.w500,
-              height: 0,
-            ),
-          ),
-          SizedBox(
-            height: 47.sp,
+            height: 31.sp,
           ),
           Container(
             decoration: ShapeDecoration(

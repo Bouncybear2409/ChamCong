@@ -25,7 +25,7 @@ class Clock extends StatelessWidget {
         numberColor: const Color.fromARGB(221, 245, 239, 239),
         showNumbers: true,
         showAllNumbers: true,
-        textScaleFactor: 1.5.sp,
+        textScaleFactor: 1.sp,
         showTicks: true,
         showDigitalClock: false,
         datetime: DateTime.now(),

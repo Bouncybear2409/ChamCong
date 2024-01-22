@@ -56,8 +56,8 @@ class _NewPasswordState extends State<NewPassword> {
     return Scaffold(
         appBar: AppBar(
           iconTheme:
-              IconThemeData(color: const Color.fromARGB(255, 239, 237, 237)),
-          leading: const Text(''),
+              const IconThemeData(color: Color.fromARGB(255, 239, 237, 237)),
+          automaticallyImplyLeading: false,
           centerTitle: true,
           backgroundColor: Colors.black,
           title: const Text(
@@ -73,7 +73,7 @@ class _NewPasswordState extends State<NewPassword> {
         ),
         body: Stack(
           children: [
-            BackGround(),
+            const BackGround(),
             Center(
               child: Padding(
                 padding: EdgeInsets.all(20.0.sp),

@@ -21,7 +21,7 @@ class EmailCheck extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(
-          color: const Color.fromARGB(255, 243, 241, 241),
+          color: Color.fromARGB(255, 243, 241, 241),
         ),
         backgroundColor: Colors.black,
         centerTitle: true,
@@ -37,7 +37,7 @@ class EmailCheck extends StatelessWidget {
         ),
       ),
       body: Stack(children: [
-        BackGround(),
+        const BackGround(),
         Padding(
           padding: EdgeInsets.all(16.0.sp),
           child: Column(
@@ -52,7 +52,7 @@ class EmailCheck extends StatelessWidget {
                     'Hãy nhập email của bạn để chúng tôi gửi mã OTP',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Color(0xFFEDEDF2),
+                      color: const Color(0xFFEDEDF2),
                       fontSize: 14.sp,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w400,
