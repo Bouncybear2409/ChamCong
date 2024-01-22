@@ -48,6 +48,7 @@ class OtpTextField extends StatelessWidget {
       defaultPinTheme: defaultPinTheme,
       focusedPinTheme: focusedPinTheme,
       submittedPinTheme: submittedPinTheme,
+      crossAxisAlignment: CrossAxisAlignment.center,
       validator: (s) {
         return s == '222222' ? null : 'Mã OTP bạn vừa nhập không đúng';
       },

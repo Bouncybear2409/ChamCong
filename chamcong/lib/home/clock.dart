@@ -13,16 +13,13 @@ class Clock extends StatelessWidget {
       child: AnalogClock(
         decoration: BoxDecoration(
             border: Border.all(
-                width: 2.0.sp, color: const Color.fromARGB(255, 238, 232, 232)),
-            color: const Color.fromARGB(0, 246, 242, 242),
+                width: 2.0.sp, color: Color.fromARGB(255, 15, 15, 15)),
+            color: Colors.white,
             shape: BoxShape.circle),
         width: 240.0.sp,
         height: 240.0.sp,
         isLive: true,
-        hourHandColor: const Color.fromARGB(255, 247, 244, 244),
-        minuteHandColor: const Color.fromARGB(255, 248, 243, 243),
         showSecondHand: true,
-        numberColor: const Color.fromARGB(221, 245, 239, 239),
         showNumbers: true,
         showAllNumbers: true,
         textScaleFactor: 1.sp,

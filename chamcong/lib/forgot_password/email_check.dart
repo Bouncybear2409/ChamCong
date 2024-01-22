@@ -4,20 +4,28 @@ import 'package:chamcong/forgot_password/verify/verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class EmailCheck extends StatelessWidget {
+class EmailCheck extends StatefulWidget {
   const EmailCheck({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    void validateLogin() {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const VerifyPage(),
-        ),
-      );
-    }
+  State<EmailCheck> createState() => _EmailCheckState();
+}
 
+class _EmailCheckState extends State<EmailCheck> {
+  TextEditingController emailController = TextEditingController();
+  String notificatitonText = '';
+
+  void validateLogin() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const VerifyPage(),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(
@@ -37,7 +45,7 @@ class EmailCheck extends StatelessWidget {
         ),
       ),
       body: Stack(children: [
-        BackGround(),
+        const BackGround(),
         Padding(
           padding: EdgeInsets.all(16.0.sp),
           child: Column(
@@ -76,20 +84,31 @@ class EmailCheck extends StatelessWidget {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            controller: emailController,
                             autofocus: false,
                             style: const TextStyle(color: Colors.black),
                             decoration: InputDecoration(
-                              border: InputBorder.none,
                               contentPadding:
                                   EdgeInsets.symmetric(horizontal: 10.sp),
+                              border: notificatitonText.isEmpty
+                                  ? InputBorder.none
+                                  : OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8.sp),
+                                      borderSide: BorderSide(color: Colors.red),
+                                    ),
                               hintText: 'Nhập email',
-                              hintStyle: const TextStyle(
-                                color: Color(0xFF888888),
-                                fontSize: 14,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w400,
-                                height: 0,
-                              ),
+                              enabledBorder: notificatitonText.isEmpty
+                                  ? InputBorder.none
+                                  : OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8.sp),
+                                      borderSide: BorderSide(color: Colors.red),
+                                    ),
+                              focusedBorder: notificatitonText.isEmpty
+                                  ? InputBorder.none
+                                  : OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8.sp),
+                                      borderSide: BorderSide(color: Colors.red),
+                                    ),
                             ),
                           ),
                         ),
