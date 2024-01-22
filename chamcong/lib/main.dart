@@ -1,4 +1,5 @@
 import 'package:chamcong/login/login_page.dart';
+import 'package:chamcong/splash/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
             textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
           ),
-          home: const LoginPage(),
+          home: const Splash(),
         );
       },
     );

@@ -174,9 +174,15 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 20.sp),
             child: SizedBox(
-                width: 320.sp,
-                height: 50.sp,
-                child: ButtonComponent(Function: () {}, text: 'Chấm công')),
+              width: 320.sp,
+              height: 50.sp,
+              child: ButtonComponent(
+                Function: () {},
+                text: 'Chấm công',
+                color_button: Color(0xFF279142),
+                color_text: Colors.white,
+              ),
+            ),
           ),
         ],
       ),

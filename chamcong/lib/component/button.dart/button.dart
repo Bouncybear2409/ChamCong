@@ -7,10 +7,14 @@ class ButtonComponent extends StatelessWidget {
     // ignore: non_constant_identifier_names
     required this.Function,
     required this.text,
+    required this.color_button,
+    required this.color_text,
   });
   // ignore: prefer_typing_uninitialized_variables, non_constant_identifier_names
   final Function;
   final String text;
+  final Color color_text;
+  final Color color_button;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,7 +22,7 @@ class ButtonComponent extends StatelessWidget {
       height: 50.sp,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF279142),
+          backgroundColor: color_button,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         ),
@@ -28,7 +32,7 @@ class ButtonComponent extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: Colors.white,
+            color: color_text,
             fontSize: 18.sp,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w500,
