@@ -1,4 +1,6 @@
-import 'package:chamcong/home/bottom_bar.dart';
+import 'package:chamcong/component/background/background.dart';
+import 'package:chamcong/component/button.dart/button.dart';
+import 'package:chamcong/bottom_bar.dart';
 
 import 'package:chamcong/forgot_password/email_check.dart';
 import 'package:flutter/material.dart';
@@ -100,7 +102,7 @@ class _LoginBodyState extends State<LoginBody> {
           Text(
             'Đăng nhập',
             style: TextStyle(
-              color: Color(0xFF2E2E2E),
+              color: Color.fromARGB(255, 255, 255, 255),
               fontSize: 20.sp,
               fontFamily: 'Roboto',
               fontWeight: FontWeight.w500,
@@ -108,7 +110,7 @@ class _LoginBodyState extends State<LoginBody> {
             ),
           ),
           SizedBox(
-            height: 80.sp,
+            height: 47.sp,
           ),
           Container(
             decoration: ShapeDecoration(
@@ -132,7 +134,7 @@ class _LoginBodyState extends State<LoginBody> {
                               borderRadius: BorderRadius.circular(8.sp),
                               borderSide: BorderSide(color: Colors.red),
                             ),
-                      hintText: 'Tài khoản',
+                      hintText: 'Nhập tài khoản',
                       enabledBorder: notificatitonText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
@@ -175,7 +177,7 @@ class _LoginBodyState extends State<LoginBody> {
                               borderRadius: BorderRadius.circular(8.sp),
                               borderSide: BorderSide(color: Colors.red),
                             ),
-                      hintText: 'Mật khẩu',
+                      hintText: 'Nhập mật khẩu',
                       enabledBorder: notificatitonText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
@@ -218,30 +220,10 @@ class _LoginBodyState extends State<LoginBody> {
             ],
           ),
           SizedBox(height: 30.sp),
-          SizedBox(
-            width: 320.sp,
-            height: 50.sp,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF497F4E),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15)),
-              ),
-              onPressed: () {
-                validateLogin();
-              },
-              child: Text(
-                'Đăng nhập',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18.sp,
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w500,
-                  height: 0.sp,
-                ),
-              ),
-            ),
-          ),
+          ButtonComponent(
+            Function: validateLogin,
+            text: 'Đăng nhập',
+          )
         ],
       ),
     );
