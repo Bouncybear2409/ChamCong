@@ -3,8 +3,27 @@ import 'package:chamcong/component/button.dart/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Absence extends StatelessWidget {
+class Absence extends StatefulWidget {
   const Absence({super.key});
+
+  @override
+  State<Absence> createState() => _AbsenceState();
+}
+
+class _AbsenceState extends State<Absence> {
+  DateTime? _selectedDate;
+  void _presentDatePicker() async {
+    final now = DateTime.now();
+    final firstDate = DateTime(now.year - 1, now.month, now.day);
+    final pickedDate = await showDatePicker(
+      context: context,
+      firstDate: firstDate,
+      lastDate: now,
+    );
+    setState(() {
+      _selectedDate = pickedDate;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +32,7 @@ class Absence extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'Tạo Đơn nghỉ',
+          'Tạo đơn nghỉ phép',
           style: TextStyle(color: Colors.white),
         ),
         flexibleSpace: const AppbarComponent(),
@@ -120,62 +139,126 @@ class Absence extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: TextField(
-                    keyboardType: TextInputType.phone,
-                    style: const TextStyle(color: Color(0xFF2E2E2E)),
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: const Color(0xFFDADADA),
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10.sp),
-                      hintText: 'Nhập email',
-                      hintStyle: const TextStyle(
-                        color: Color(0xFF888888),
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w400,
-                        height: 0,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Ngày bắt đầu',
+                        style: TextStyle(
+                          color: Color(0xFF595959),
+                          fontSize: 15,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w400,
+                          height: 0,
+                        ),
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(10),
+                      SizedBox(
+                        height: 8.sp,
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                      Stack(children: [
+                        TextField(
+                          keyboardType: TextInputType.phone,
+                          style: const TextStyle(color: Color(0xFF2E2E2E)),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: const Color(0xFFDADADA),
+                            border: InputBorder.none,
+                            contentPadding:
+                                EdgeInsets.symmetric(horizontal: 10.sp),
+                            hintText: 'Nhập email',
+                            hintStyle: const TextStyle(
+                              color: Color(0xFF888888),
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w400,
+                              height: 0,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              onPressed: _presentDatePicker,
+                              icon: Icon(
+                                Icons.calendar_month,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ]),
+                    ],
                   ),
                 ),
                 SizedBox(
                   width: 16.sp,
                 ),
                 Expanded(
-                  child: TextField(
-                    keyboardType: TextInputType.phone,
-                    style: const TextStyle(color: Color(0xFF2E2E2E)),
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: const Color(0xFFDADADA),
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10.sp),
-                      hintText: 'Nhập email',
-                      hintStyle: const TextStyle(
-                        color: Color(0xFF888888),
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w400,
-                        height: 0,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Ngày kết thúc',
+                        style: TextStyle(
+                          color: Color(0xFF595959),
+                          fontSize: 15,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w400,
+                          height: 0,
+                        ),
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(10),
+                      SizedBox(
+                        height: 8.sp,
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                      Stack(children: [
+                        TextField(
+                          keyboardType: TextInputType.phone,
+                          style: const TextStyle(color: Color(0xFF2E2E2E)),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: const Color(0xFFDADADA),
+                            border: InputBorder.none,
+                            contentPadding:
+                                EdgeInsets.symmetric(horizontal: 10.sp),
+                            hintText: 'Nhập email',
+                            hintStyle: const TextStyle(
+                              color: Color(0xFF888888),
+                              fontSize: 14,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w400,
+                              height: 0,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              onPressed: _presentDatePicker,
+                              icon: Icon(
+                                Icons.calendar_month,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ]),
+                    ],
                   ),
                 ),
               ],
@@ -213,8 +296,8 @@ class Absence extends StatelessWidget {
             ButtonComponent(
               Function: () {},
               text: 'Gửi đơn',
-                 color_button: const Color(0xFF279142),
-                color_text: Colors.white,
+              color_button: const Color(0xFF279142),
+              color_text: Colors.white,
             )
           ],
         ),
