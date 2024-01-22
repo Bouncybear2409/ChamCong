@@ -179,7 +179,7 @@ class HomePage extends StatelessWidget {
               child: ButtonComponent(
                 Function: () {},
                 text: 'Chấm công',
-                color_button: Color(0xFF279142),
+                color_button: const Color(0xFF279142),
                 color_text: Colors.white,
               ),
             ),

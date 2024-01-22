@@ -7,7 +7,9 @@ class ButtonComponent extends StatelessWidget {
     // ignore: non_constant_identifier_names
     required this.Function,
     required this.text,
+    // ignore: non_constant_identifier_names
     required this.color_button,
+    // ignore: non_constant_identifier_names
     required this.color_text,
   });
   // ignore: prefer_typing_uninitialized_variables, non_constant_identifier_names

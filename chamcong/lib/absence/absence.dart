@@ -213,6 +213,8 @@ class Absence extends StatelessWidget {
             ButtonComponent(
               Function: () {},
               text: 'Gửi đơn',
+                 color_button: const Color(0xFF279142),
+                color_text: Colors.white,
             )
           ],
         ),
