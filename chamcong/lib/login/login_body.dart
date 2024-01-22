@@ -1,7 +1,5 @@
-import 'package:chamcong/component/background/background.dart';
 import 'package:chamcong/component/button.dart/button.dart';
 import 'package:chamcong/bottom_bar.dart';
-
 import 'package:chamcong/forgot_password/email_check.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -119,20 +117,20 @@ class _LoginBodyState extends State<LoginBody> {
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: BorderSide(color: Colors.red),
+                              borderSide: const BorderSide(color: Colors.red),
                             ),
                       hintText: 'Nhập tài khoản',
                       enabledBorder: notificatitonText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: BorderSide(color: Colors.red),
+                              borderSide: const BorderSide(color: Colors.red),
                             ),
                       focusedBorder: notificatitonText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: BorderSide(color: Colors.red),
+                              borderSide: const BorderSide(color: Colors.red),
                             ),
                     ),
                   ),
@@ -162,20 +160,20 @@ class _LoginBodyState extends State<LoginBody> {
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: BorderSide(color: Colors.red),
+                              borderSide: const BorderSide(color: Colors.red),
                             ),
                       hintText: 'Nhập mật khẩu',
                       enabledBorder: notificatitonText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: BorderSide(color: Colors.red),
+                              borderSide: const BorderSide(color: Colors.red),
                             ),
                       focusedBorder: notificatitonText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: BorderSide(color: Colors.red),
+                              borderSide: const BorderSide(color: Colors.red),
                             ),
                     ),
                   ),
@@ -196,7 +194,7 @@ class _LoginBodyState extends State<LoginBody> {
                 child: Text(
                   'Quên mật khẩu',
                   style: TextStyle(
-                    color: Color(0xFF497F4E),
+                    color: const Color(0xFF497F4E),
                     fontSize: 14.sp,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w500,

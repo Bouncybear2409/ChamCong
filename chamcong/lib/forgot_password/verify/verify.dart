@@ -25,7 +25,7 @@ class VerifyPage extends StatelessWidget {
         ),
       ),
       body: Stack(children: [
-        BackGround(),
+        const BackGround(),
         Center(
           child: Column(
             children: [

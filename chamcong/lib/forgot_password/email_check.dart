@@ -29,7 +29,7 @@ class _EmailCheckState extends State<EmailCheck> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(
-          color: const Color.fromARGB(255, 243, 241, 241),
+          color: Color.fromARGB(255, 243, 241, 241),
         ),
         backgroundColor: Colors.black,
         centerTitle: true,
@@ -60,7 +60,7 @@ class _EmailCheckState extends State<EmailCheck> {
                     'Hãy nhập email của bạn để chúng tôi gửi mã OTP',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Color(0xFFEDEDF2),
+                      color: const Color(0xFFEDEDF2),
                       fontSize: 14.sp,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w400,
