@@ -227,10 +227,15 @@ class _ProfilePageState extends State<ProfilePage> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 25.sp),
                   child: SizedBox(
-                      width: 320.sp,
-                      height: 50.sp,
-                      child: ButtonComponent(
-                          Function: logoutAlert, text: 'Đăng xuất')),
+                    width: 320.sp,
+                    height: 50.sp,
+                    child: ButtonComponent(
+                      Function: logoutAlert,
+                      text: 'Đăng xuất',
+                      color_button: Colors.white,
+                      color_text: Colors.red,
+                    ),
+                  ),
                 ),
               ],
             ),

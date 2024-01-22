@@ -169,10 +169,15 @@ class _NewPasswordState extends State<NewPassword> {
                     Column(
                       children: [
                         SizedBox(
-                            width: 320.sp,
-                            height: 50.sp,
-                            child: ButtonComponent(
-                                Function: validateLogin, text: 'Hoàn tất')),
+                          width: 320.sp,
+                          height: 50.sp,
+                          child: ButtonComponent(
+                            Function: validateLogin,
+                            text: 'Hoàn tất',
+                            color_button: Color(0xFF279142),
+                            color_text: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
                   ],

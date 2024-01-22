@@ -210,6 +210,8 @@ class _LoginBodyState extends State<LoginBody> {
           ButtonComponent(
             Function: validateLogin,
             text: 'Đăng nhập',
+            color_button: Color(0xFF279142),
+            color_text: Colors.white,
           )
         ],
       ),

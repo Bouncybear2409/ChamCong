@@ -10,11 +10,11 @@ class Absence extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
+        title: const Text(
           'Tạo Đơn nghỉ',
           style: TextStyle(color: Colors.white),
         ),
-        flexibleSpace: AppbarComponent(),
+        flexibleSpace: const AppbarComponent(),
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),

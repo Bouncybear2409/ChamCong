@@ -1,7 +1,6 @@
-import 'package:chamcong/app_images.dart';
-import 'package:chamcong/component/appbar/appbar.dart';
 import 'package:chamcong/component/background/background.dart';
 import 'package:chamcong/login/login_body.dart';
+import 'package:chamcong/splash/splash.dart';
 
 import 'package:flutter/material.dart';
 
@@ -10,10 +9,23 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void NavigateSplash() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Splash(),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(
           color: const Color.fromARGB(255, 243, 241, 241),
+        ),
+        leading: InkWell(
+          child: Icon(Icons.arrow_back),
+          onTap: NavigateSplash,
         ),
         backgroundColor: Colors.black,
         centerTitle: true,

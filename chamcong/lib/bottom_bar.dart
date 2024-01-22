@@ -34,9 +34,9 @@ class _BottomBarState extends State<BottomBar> {
               currentPageIndex = index;
             });
           },
-          indicatorColor: Color(0xff279142),
+          indicatorColor: const Color(0xff279142),
           selectedIndex: currentPageIndex,
-          destinations: <Widget>[
+          destinations: const <Widget>[
             NavigationDestination(
               selectedIcon: Icon(Icons.check, color: Colors.white),
               icon: Icon(
@@ -72,16 +72,16 @@ class _BottomBarState extends State<BottomBar> {
       ),
       body: <Widget>[
         /// Home page
-        HomePage(),
+        const HomePage(),
 
         /// Absence page
-        Absence(),
+        const Absence(),
 
         /// History page
-        History(),
+        const History(),
 
         /// Profile page
-        ProfilePage(),
+        const ProfilePage(),
       ][currentPageIndex],
     );
   }

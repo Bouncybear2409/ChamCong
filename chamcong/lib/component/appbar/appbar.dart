@@ -10,7 +10,7 @@ class AppbarComponent extends StatelessWidget {
     return Image(
         height: 360.sp,
         width: 80.sp,
-        image: AssetImage(
+        image: const AssetImage(
           AppImages.imgAppBar,
         ),
         fit: BoxFit.cover);
