@@ -17,7 +17,7 @@ class _LoginBodyState extends State<LoginBody> {
   TextEditingController passwordController = TextEditingController();
   String notificatitonUserText = '';
   String notificatitonPasswordText = '';
-
+  bool ban = false;
   void handleForgotPasswordTap() {
     Navigator.push(
       context,
@@ -34,7 +34,7 @@ class _LoginBodyState extends State<LoginBody> {
     String password = passwordController.text;
     bool isValidLogin = checkCredentials(username, password);
 
-    if (isValidLogin) {
+    if (isValidLogin == true && ban == false) {
       setState(() {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const BottomBar()));
@@ -52,6 +52,7 @@ class _LoginBodyState extends State<LoginBody> {
         });
       } else if (password.length < 8) {
         setState(() {
+          notificatitonUserText = '';
           notificatitonPasswordText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
         });
       } else {
@@ -63,7 +64,8 @@ class _LoginBodyState extends State<LoginBody> {
         });
       }
     }
-    if (count == 3) {
+    if (count >= 3 || ban == true) {
+      ban = true;
       showDialog<String>(
         context: context,
         builder: (BuildContext context) => AlertDialog(

@@ -32,16 +32,16 @@ class OtpTextField extends StatelessWidget {
       ),
     );
 
-    void validCheck(s) {
-      if (s == '222222') {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const NewPassword(),
-          ),
-        );
-      }
-    }
+    // void validCheck(s) {
+    //   if (s == '222222') {
+    //     Navigator.push(
+    //       context,
+    //       MaterialPageRoute(
+    //         builder: (context) => const NewPassword(),
+    //       ),
+    //     );
+    //   }
+    // }
 
     return Pinput(
       length: 6,
@@ -50,11 +50,11 @@ class OtpTextField extends StatelessWidget {
       submittedPinTheme: submittedPinTheme,
       crossAxisAlignment: CrossAxisAlignment.center,
       validator: (s) {
-        return s == '222222' ? null : 'Mã OTP bạn vừa nhập không đúng';
+        return s == '222222' ? null : 'Mã OTP không đúng định dạng';
       },
       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
       showCursor: true,
-      onCompleted: (pin) => validCheck(pin),
+      onCompleted: (pin) => print(pin),
     );
   }
 }
