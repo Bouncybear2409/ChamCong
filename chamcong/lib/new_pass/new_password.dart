@@ -20,8 +20,14 @@ class _NewPasswordState extends State<NewPassword> {
     if (password.isEmpty || confirmPassword.isEmpty) {
       return false;
     } else {
-      return password == confirmPassword;
+      return password == confirmPassword && containsSpecialCharacter(password);
     }
+  }
+
+  bool containsSpecialCharacter(String text) {
+    String pattern = r'[@!*#]';
+    RegExp regex = RegExp(pattern);
+    return regex.hasMatch(text);
   }
 
   void validateLogin() {
@@ -31,8 +37,11 @@ class _NewPasswordState extends State<NewPassword> {
 
     if (isValidLogin) {
       setState(() {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const LoginPage()));
+        notificatitonText = '';
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const LoginPage()),
+        );
       });
     } else {
       if (password.isEmpty || confirmPassword.isEmpty) {
@@ -42,6 +51,11 @@ class _NewPasswordState extends State<NewPassword> {
       } else if (password.length < 8 || confirmPassword.length < 8) {
         setState(() {
           notificatitonText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
+        });
+      } else if (!containsSpecialCharacter(password) ||
+          !containsSpecialCharacter(confirmPassword)) {
+        setState(() {
+          notificatitonText = 'Mật khẩu phải chứa ít nhất một ký tự đặc biệt';
         });
       } else {
         setState(() {
@@ -57,7 +71,6 @@ class _NewPasswordState extends State<NewPassword> {
         appBar: AppBar(
           iconTheme:
               const IconThemeData(color: Color.fromARGB(255, 239, 237, 237)),
-          automaticallyImplyLeading: false,
           centerTitle: true,
           backgroundColor: Colors.black,
           title: const Text(
@@ -174,7 +187,7 @@ class _NewPasswordState extends State<NewPassword> {
                           child: ButtonComponent(
                             onTap: validateLogin,
                             text: 'Hoàn tất',
-                            color_button: Color(0xFF279142),
+                            color_button: const Color(0xFF279142),
                             color_text: Colors.white,
                           ),
                         ),

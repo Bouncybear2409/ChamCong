@@ -126,7 +126,7 @@ class _LoginBodyState extends State<LoginBody> {
                     controller: usernameController,
                     decoration: InputDecoration(
                       contentPadding:
-                          EdgeInsets.symmetric(horizontal: 10.sp, vertical: 20),
+                          EdgeInsets.symmetric(horizontal: 10.sp, vertical: 10),
                       border: notificatitonUserText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
@@ -165,7 +165,7 @@ class _LoginBodyState extends State<LoginBody> {
               Text(
                 notificatitonUserText,
                 style: TextStyle(
-                  color: Color(0xFFF96F6F),
+                  color: const Color(0xFFF96F6F),
                   fontSize: 12.sp,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w400,
@@ -181,7 +181,10 @@ class _LoginBodyState extends State<LoginBody> {
             decoration: ShapeDecoration(
               color: Colors.white,
               shape: RoundedRectangleBorder(
-                side: BorderSide(width: 1.sp, color: const Color(0xFF888888)),
+                side: BorderSide(
+                  width: 1.sp,
+                  color: const Color(0xFF888888),
+                ),
                 borderRadius: BorderRadius.circular(15.sp),
               ),
             ),
@@ -195,30 +198,38 @@ class _LoginBodyState extends State<LoginBody> {
                     obscureText: true,
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
-                          onPressed: () {}, icon: Icon(Icons.remove_red_eye)),
+                        onPressed: () {},
+                        icon: const Icon(Icons.remove_red_eye),
+                      ),
                       contentPadding:
-                          EdgeInsets.symmetric(horizontal: 10.sp, vertical: 20),
+                          EdgeInsets.symmetric(horizontal: 10.sp, vertical: 10),
                       border: notificatitonPasswordText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(13.sp),
-                              borderSide:
-                                  const BorderSide(width: 2, color: Colors.red),
+                              borderSide: const BorderSide(
+                                width: 2,
+                                color: Colors.red,
+                              ),
                             ),
                       hintText: 'Nhập mật khẩu',
                       enabledBorder: notificatitonPasswordText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(13.sp),
-                              borderSide:
-                                  const BorderSide(width: 2, color: Colors.red),
+                              borderSide: const BorderSide(
+                                width: 2,
+                                color: Colors.red,
+                              ),
                             ),
                       focusedBorder: notificatitonPasswordText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(13.sp),
-                              borderSide:
-                                  const BorderSide(width: 2, color: Colors.red),
+                              borderSide: const BorderSide(
+                                width: 2,
+                                color: Colors.red,
+                              ),
                             ),
                     ),
                   ),
@@ -236,7 +247,7 @@ class _LoginBodyState extends State<LoginBody> {
               Text(
                 notificatitonPasswordText,
                 style: TextStyle(
-                  color: Color(0xFFF96F6F),
+                  color: const Color(0xFFF96F6F),
                   fontSize: 12.sp,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w400,

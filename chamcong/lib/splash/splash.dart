@@ -9,11 +9,12 @@ class Splash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
     void NavigatePage() {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => LoginPage(),
+          builder: (context) => const LoginPage(),
         ),
       );
     }
@@ -22,7 +23,7 @@ class Splash extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Stack(children: [
-          BackGround(),
+          const BackGround(),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -47,9 +48,11 @@ class Splash extends StatelessWidget {
                   ),
                 ),
                 ButtonComponent(
-                  onTap: () {},
+                  onTap: () {
+                    NavigatePage;
+                  },
                   text: 'Quản trị viên',
-                  color_button: Color(0xFF737373),
+                  color_button: const Color(0xFF737373),
                   color_text: Colors.white,
                 ),
               ],

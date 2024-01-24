@@ -13,7 +13,7 @@ class Clock extends StatelessWidget {
       child: AnalogClock(
         decoration: BoxDecoration(
             border: Border.all(
-                width: 2.0.sp, color: Color.fromARGB(255, 15, 15, 15)),
+                width: 2.0.sp, color: const Color.fromARGB(255, 15, 15, 15)),
             color: Colors.white,
             shape: BoxShape.circle),
         width: 240.0.sp,

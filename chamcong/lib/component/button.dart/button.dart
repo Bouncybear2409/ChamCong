@@ -15,7 +15,9 @@ class ButtonComponent extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables, non_constant_identifier_names
   final VoidCallback onTap;
   final String text;
+  // ignore: non_constant_identifier_names
   final Color color_text;
+  // ignore: non_constant_identifier_names
   final Color color_button;
   @override
   Widget build(BuildContext context) {
