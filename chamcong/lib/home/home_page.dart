@@ -36,11 +36,11 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
+        title: const Text(
           'Trang chủ',
           style: TextStyle(color: Colors.white),
         ),
-        flexibleSpace: AppbarComponent(),
+        flexibleSpace: const AppbarComponent(),
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),
@@ -145,7 +145,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          Clock(),
+          const Clock(),
           SizedBox(height: 20.sp),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -179,7 +179,7 @@ class HomePage extends StatelessWidget {
               child: ButtonComponent(
                 Function: () {},
                 text: 'Chấm công',
-                color_button: Color(0xFF279142),
+                color_button: const Color(0xFF279142),
                 color_text: Colors.white,
               ),
             ),
