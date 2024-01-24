@@ -5,7 +5,7 @@ class ButtonComponent extends StatelessWidget {
   const ButtonComponent({
     super.key,
     // ignore: non_constant_identifier_names
-    required this.Function,
+    required this.onTap,
     required this.text,
     // ignore: non_constant_identifier_names
     required this.color_button,
@@ -13,7 +13,7 @@ class ButtonComponent extends StatelessWidget {
     required this.color_text,
   });
   // ignore: prefer_typing_uninitialized_variables, non_constant_identifier_names
-  final Function;
+  final VoidCallback onTap;
   final String text;
   final Color color_text;
   final Color color_button;
@@ -29,7 +29,7 @@ class ButtonComponent extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         ),
         onPressed: () {
-          Function();
+          onTap();
         },
         child: Text(
           text,

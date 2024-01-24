@@ -2,11 +2,28 @@ import 'package:chamcong/app_color.dart';
 import 'package:chamcong/component/background/background.dart';
 import 'package:chamcong/component/button.dart/button.dart';
 import 'package:chamcong/forgot_password/verify/otp.dart';
+import 'package:chamcong/new_pass/new_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class VerifyPage extends StatelessWidget {
+class VerifyPage extends StatefulWidget {
   const VerifyPage({Key? key}) : super(key: key);
+
+  @override
+  State<VerifyPage> createState() => _VerifyPageState();
+}
+
+class _VerifyPageState extends State<VerifyPage> {
+  bool isCheck = false;
+  bool isError = false;
+  String otp = '';
+
+  void updateIsCheck(bool newValue) {
+    setState(() {
+      isCheck = newValue;
+      isError = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +67,18 @@ class VerifyPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 30.sp),
-                  const OtpTextField(),
+                  OtpTextField(
+                    isError: isError,
+                    isCheck: isCheck,
+                    onChanged: (String value) {
+                      setState(() {
+                        otp = value;
+                      });
+                      updateIsCheck(value.length == 6);
+                    },
+                    onIsCheckChanged:
+                        updateIsCheck, // Pass the callback function
+                  ),
                   SizedBox(height: 30.sp),
                   Text(
                     'Mã sẽ hết hạn sau 59s',
@@ -91,11 +119,31 @@ class VerifyPage extends StatelessWidget {
               ),
               Column(
                 children: [
-                  ButtonComponent(
-                      Function: () {},
-                      color_button: AppColors.kGray,
-                      color_text: Colors.white,
-                      text: 'Xác nhận'),
+                  IgnorePointer(
+                    ignoring: !isCheck,
+                    child: ButtonComponent(
+                        onTap: () {
+                          // otp valid => vao trang tiep theo
+                          // otp invalid => show loi
+                          if (otp == '222222') {
+                            setState(() {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => NewPassword(),
+                                ),
+                              );
+                            });
+                          } else {
+                            setState(() {
+                              isError = true;
+                            });
+                          }
+                        },
+                        color_button: isCheck ? Colors.red : AppColors.kGray,
+                        color_text: Colors.white,
+                        text: 'Xác nhận'),
+                  ),
                   SizedBox(
                     height: 30.sp,
                   ),

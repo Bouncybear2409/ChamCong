@@ -172,7 +172,7 @@ class _NewPasswordState extends State<NewPassword> {
                           width: 320.sp,
                           height: 50.sp,
                           child: ButtonComponent(
-                            Function: validateLogin,
+                            onTap: validateLogin,
                             text: 'Hoàn tất',
                             color_button: Color(0xFF279142),
                             color_text: Colors.white,

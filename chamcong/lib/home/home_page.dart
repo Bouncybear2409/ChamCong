@@ -177,7 +177,7 @@ class HomePage extends StatelessWidget {
               width: 320.sp,
               height: 50.sp,
               child: ButtonComponent(
-                Function: () {},
+                onTap: () {},
                 text: 'Chấm công',
                 color_button: const Color(0xFF279142),
                 color_text: Colors.white,

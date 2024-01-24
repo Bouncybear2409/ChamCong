@@ -40,19 +40,14 @@ class Splash extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 33.sp, bottom: 20.sp),
                   child: ButtonComponent(
-                    Function: NavigatePage,
+                    onTap: NavigatePage,
                     text: 'Nhân viên',
                     color_button: const Color(0xFF279142),
                     color_text: Colors.white,
                   ),
                 ),
-<<<<<<< HEAD
-                const ButtonComponent(
-                  Function: (),
-=======
                 ButtonComponent(
-                  Function: () {},
->>>>>>> 9a301c7b087457569eecad2c19a13f1139a56b75
+                  onTap: () {},
                   text: 'Quản trị viên',
                   color_button: Color(0xFF737373),
                   color_text: Colors.white,

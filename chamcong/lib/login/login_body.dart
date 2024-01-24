@@ -265,7 +265,7 @@ class _LoginBodyState extends State<LoginBody> {
           ),
           SizedBox(height: 30.sp),
           ButtonComponent(
-            Function: validateLogin,
+            onTap: validateLogin,
             text: 'Đăng nhập',
             color_button: const Color(0xFF279142),
             color_text: Colors.white,

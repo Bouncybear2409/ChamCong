@@ -168,7 +168,7 @@ class _EmailCheckState extends State<EmailCheck> {
                   width: 320.sp,
                   height: 50.sp,
                   child: ButtonComponent(
-                    Function: validateLogin,
+                    onTap: validateLogin,
                     text: 'Tiếp tục',
                     color_button: AppColors.kGreen,
                     color_text: Colors.white,

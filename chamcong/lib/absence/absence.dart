@@ -279,7 +279,7 @@ class _AbsenceState extends State<Absence> {
             ),
             SizedBox(height: 40.sp),
             ButtonComponent(
-              Function: () {},
+              onTap: () {},
               text: 'Gửi đơn',
               color_button: const Color(0xFF279142),
               color_text: Colors.white,
