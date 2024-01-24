@@ -1,11 +1,11 @@
-import 'package:chamcong/new_pass/new_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpTextField extends StatelessWidget {
-  const OtpTextField({super.key});
-
+  const OtpTextField({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
