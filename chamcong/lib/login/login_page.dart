@@ -9,11 +9,12 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
     void NavigateSplash() {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => Splash(),
+          builder: (context) => const Splash(),
         ),
       );
     }
@@ -21,11 +22,11 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(
-          color: const Color.fromARGB(255, 243, 241, 241),
+          color: Color.fromARGB(255, 243, 241, 241),
         ),
         leading: InkWell(
-          child: Icon(Icons.arrow_back),
           onTap: NavigateSplash,
+          child: const Icon(Icons.arrow_back),
         ),
         backgroundColor: Colors.black,
         centerTitle: true,

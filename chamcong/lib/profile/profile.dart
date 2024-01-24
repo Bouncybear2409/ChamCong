@@ -29,7 +29,7 @@ class _ProfilePageState extends State<ProfilePage> {
         content: Text(
           'Bạn có chắc muốn đăng xuất!',
           style: TextStyle(
-            color: Color.fromARGB(255, 80, 80, 81),
+            color: const Color.fromARGB(255, 80, 80, 81),
             fontSize: 14.sp,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w400,
@@ -68,11 +68,11 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
+        title: const Text(
           'Tài khoản',
           style: TextStyle(color: Colors.white),
         ),
-        flexibleSpace: AppbarComponent(),
+        flexibleSpace: const AppbarComponent(),
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),

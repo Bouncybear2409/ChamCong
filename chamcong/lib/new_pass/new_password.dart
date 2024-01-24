@@ -17,39 +17,54 @@ class _NewPasswordState extends State<NewPassword> {
   String notificatitonText = '';
 
   bool checkCredentials(String password, String confirmPassword) {
-    if (password.isEmpty || confirmPassword.isEmpty) {
-      return false;
-    } else {
-      return password == confirmPassword;
-    }
+  if (password.isEmpty || confirmPassword.isEmpty) {
+    return false;
+  } else {
+    return password == confirmPassword && containsSpecialCharacter(password);
   }
+}
 
-  void validateLogin() {
-    String password = passwordController.text;
-    String confirmPassword = confirmPasswordController.text;
-    bool isValidLogin = checkCredentials(password, confirmPassword);
+bool containsSpecialCharacter(String text) {
+  String pattern = r'[@!*#]';
+  RegExp regex = RegExp(pattern);
+  return regex.hasMatch(text);
+}
 
-    if (isValidLogin) {
+void validateLogin() {
+  String password = passwordController.text;
+  String confirmPassword = confirmPasswordController.text;
+  bool isValidLogin = checkCredentials(password, confirmPassword);
+
+  if (isValidLogin) {
+    setState(() {
+      notificatitonText = '';
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginPage()),
+      );
+    });
+  } else {
+    if (password.isEmpty || confirmPassword.isEmpty) {
       setState(() {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const LoginPage()));
+        notificatitonText = 'Vui lòng nhập đầy đủ thông tin.';
+      });
+    } else if (password.length < 8 || confirmPassword.length < 8) {
+      setState(() {
+        notificatitonText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
+      });
+    } else if (!containsSpecialCharacter(password) ||
+               !containsSpecialCharacter(confirmPassword)) {
+      setState(() {
+        notificatitonText = 'Mật khẩu phải chứa ít nhất một ký tự đặc biệt';
       });
     } else {
-      if (password.isEmpty || confirmPassword.isEmpty) {
-        setState(() {
-          notificatitonText = 'Vui lòng nhập đầy đủ thông tin.';
-        });
-      } else if (password.length < 8 || confirmPassword.length < 8) {
-        setState(() {
-          notificatitonText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
-        });
-      } else {
-        setState(() {
-          notificatitonText = 'Mật khẩu không giống nhau!';
-        });
-      }
+      setState(() {
+        notificatitonText = 'Mật khẩu không giống nhau!';
+      });
     }
   }
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -174,7 +189,7 @@ class _NewPasswordState extends State<NewPassword> {
                           child: ButtonComponent(
                             Function: validateLogin,
                             text: 'Hoàn tất',
-                            color_button: Color(0xFF279142),
+                            color_button: const Color(0xFF279142),
                             color_text: Colors.white,
                           ),
                         ),
