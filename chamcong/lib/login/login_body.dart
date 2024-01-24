@@ -110,12 +110,12 @@ class _LoginBodyState extends State<LoginBody> {
           ),
           Container(
             width: 320.sp,
-            height: 50.sp,
+            height: 50.sp, // Đã thay đổi chiều cao thành 60.sp
             decoration: ShapeDecoration(
               color: Colors.white,
               shape: RoundedRectangleBorder(
                 side: BorderSide(width: 1.sp, color: const Color(0xFF888888)),
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(15),
               ),
             ),
             child: Row(
@@ -125,25 +125,29 @@ class _LoginBodyState extends State<LoginBody> {
                     style: const TextStyle(color: Colors.black),
                     controller: usernameController,
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10.sp),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 10.sp, vertical: 20),
                       border: notificatitonUserText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: const BorderSide(color: Colors.red),
+                              borderRadius: BorderRadius.circular(11.sp),
+                              borderSide:
+                                  const BorderSide(width: 2, color: Colors.red),
                             ),
                       hintText: 'Nhập tài khoản',
                       enabledBorder: notificatitonUserText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: const BorderSide(color: Colors.red),
+                              borderRadius: BorderRadius.circular(11.sp),
+                              borderSide:
+                                  const BorderSide(width: 2, color: Colors.red),
                             ),
                       focusedBorder: notificatitonUserText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: const BorderSide(color: Colors.red),
+                              borderRadius: BorderRadius.circular(11.sp),
+                              borderSide:
+                                  const BorderSide(width: 2, color: Colors.red),
                             ),
                     ),
                   ),
@@ -178,7 +182,7 @@ class _LoginBodyState extends State<LoginBody> {
               color: Colors.white,
               shape: RoundedRectangleBorder(
                 side: BorderSide(width: 1.sp, color: const Color(0xFF888888)),
-                borderRadius: BorderRadius.circular(14.sp),
+                borderRadius: BorderRadius.circular(15.sp),
               ),
             ),
             child: Row(
@@ -192,25 +196,29 @@ class _LoginBodyState extends State<LoginBody> {
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                           onPressed: () {}, icon: Icon(Icons.remove_red_eye)),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10.sp),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 10.sp, vertical: 20),
                       border: notificatitonPasswordText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: const BorderSide(color: Colors.red),
+                              borderRadius: BorderRadius.circular(13.sp),
+                              borderSide:
+                                  const BorderSide(width: 2, color: Colors.red),
                             ),
                       hintText: 'Nhập mật khẩu',
                       enabledBorder: notificatitonPasswordText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: const BorderSide(color: Colors.red),
+                              borderRadius: BorderRadius.circular(13.sp),
+                              borderSide:
+                                  const BorderSide(width: 2, color: Colors.red),
                             ),
                       focusedBorder: notificatitonPasswordText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.sp),
-                              borderSide: const BorderSide(color: Colors.red),
+                              borderRadius: BorderRadius.circular(13.sp),
+                              borderSide:
+                                  const BorderSide(width: 2, color: Colors.red),
                             ),
                     ),
                   ),
