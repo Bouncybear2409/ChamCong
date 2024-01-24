@@ -46,8 +46,13 @@ class Splash extends StatelessWidget {
                     color_text: Colors.white,
                   ),
                 ),
+<<<<<<< HEAD
                 const ButtonComponent(
                   Function: (),
+=======
+                ButtonComponent(
+                  Function: () {},
+>>>>>>> 9a301c7b087457569eecad2c19a13f1139a56b75
                   text: 'Quản trị viên',
                   color_button: Color(0xFF737373),
                   color_text: Colors.white,
