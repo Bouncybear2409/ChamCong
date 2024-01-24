@@ -2,8 +2,10 @@ import 'package:chamcong/app_color.dart';
 import 'package:chamcong/component/background/background.dart';
 import 'package:chamcong/component/button.dart/button.dart';
 import 'package:chamcong/forgot_password/verify/verify.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'dart:core';
 
 class EmailCheck extends StatefulWidget {
   const EmailCheck({super.key});
@@ -16,13 +18,42 @@ class _EmailCheckState extends State<EmailCheck> {
   TextEditingController emailController = TextEditingController();
   String notificatitonText = '';
 
+  bool isEmailValid(String email) {
+    String username = email.split('@')[0];
+    return EmailValidator.validate(email) &&
+        username.length >= 8 &&
+        username.length <= 64 &&
+        !username.contains(' ');
+  }
+
   void validateLogin() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const VerifyPage(),
-      ),
-    );
+    String email = emailController.text;
+    String username = email.split('@')[0];
+
+    if (isEmailValid(email)) {
+      setState(() {
+        notificatitonText = '';
+      });
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const VerifyPage(),
+        ),
+      );
+    } else {
+      setState(() {
+        if (email.isEmpty) {
+          notificatitonText = 'Vui lòng nhập Email';
+        } else if (username.length < 8) {
+          notificatitonText = 'Username phải chứa tối thiểu 8 kí tự';
+        } else if (username.contains(' ')) {
+          notificatitonText = 'Username không được chứa khoảng trắng';
+        } else {
+          notificatitonText = 'Email không đúng định dạng';
+        }
+      });
+    }
   }
 
   @override
@@ -55,7 +86,7 @@ class _EmailCheckState extends State<EmailCheck> {
               Column(
                 children: [
                   SizedBox(
-                    height: 57.sp,
+                    height: 10.sp,
                   ),
                   Text(
                     'Hãy nhập email của bạn để chúng tôi gửi mã OTP',
@@ -68,7 +99,7 @@ class _EmailCheckState extends State<EmailCheck> {
                     ),
                   ),
                   SizedBox(
-                    height: 34.sp,
+                    height: 10.sp,
                   ),
                   Container(
                     decoration: ShapeDecoration(
@@ -95,20 +126,23 @@ class _EmailCheckState extends State<EmailCheck> {
                                   ? InputBorder.none
                                   : OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8.sp),
-                                      borderSide: BorderSide(color: Colors.red),
+                                      borderSide:
+                                          const BorderSide(color: Colors.red),
                                     ),
                               hintText: 'Nhập email',
                               enabledBorder: notificatitonText.isEmpty
                                   ? InputBorder.none
                                   : OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8.sp),
-                                      borderSide: BorderSide(color: Colors.red),
+                                      borderSide:
+                                          const BorderSide(color: Colors.red),
                                     ),
                               focusedBorder: notificatitonText.isEmpty
                                   ? InputBorder.none
                                   : OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8.sp),
-                                      borderSide: BorderSide(color: Colors.red),
+                                      borderSide:
+                                          const BorderSide(color: Colors.red),
                                     ),
                             ),
                           ),
@@ -116,7 +150,16 @@ class _EmailCheckState extends State<EmailCheck> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 40.sp),
+                  SizedBox(height: 10.sp),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        notificatitonText,
+                        style: const TextStyle(color: Colors.red),
+                      ),
+                    ],
+                  ),
                 ],
               ),
               Padding(
@@ -126,7 +169,7 @@ class _EmailCheckState extends State<EmailCheck> {
                   height: 50.sp,
                   child: ButtonComponent(
                     Function: validateLogin,
-                    text: 'Hoàn tất',
+                    text: 'Tiếp tục',
                     color_button: AppColors.kGreen,
                     color_text: Colors.white,
                   ),

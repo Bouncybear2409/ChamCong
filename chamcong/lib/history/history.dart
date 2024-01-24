@@ -15,7 +15,7 @@ class History extends StatelessWidget {
           'Lịch sử',
           style: TextStyle(color: Colors.white),
         ),
-        flexibleSpace: AppbarComponent(),
+        flexibleSpace: const AppbarComponent(),
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),

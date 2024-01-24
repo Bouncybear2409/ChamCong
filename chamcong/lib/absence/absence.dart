@@ -11,6 +11,7 @@ class Absence extends StatefulWidget {
 }
 
 class _AbsenceState extends State<Absence> {
+  // ignore: unused_field
   DateTime? _selectedDate;
   void _presentDatePicker() async {
     final now = DateTime.now();
@@ -40,7 +41,7 @@ class _AbsenceState extends State<Absence> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(16.sp, 32.sp, 16.sp, 16.sp),
+        padding: EdgeInsets.fromLTRB(16.sp, 26.sp, 16.sp, 16.sp),
         child: Column(
           children: [
             TextField(
@@ -133,8 +134,8 @@ class _AbsenceState extends State<Absence> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: 20.sp,
             ),
             Row(
               children: [
@@ -142,7 +143,7 @@ class _AbsenceState extends State<Absence> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Ngày bắt đầu',
                         style: TextStyle(
                           color: Color(0xFF595959),
@@ -165,14 +166,6 @@ class _AbsenceState extends State<Absence> {
                             border: InputBorder.none,
                             contentPadding:
                                 EdgeInsets.symmetric(horizontal: 10.sp),
-                            hintText: 'Nhập email',
-                            hintStyle: const TextStyle(
-                              color: Color(0xFF888888),
-                              fontSize: 14,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.w400,
-                              height: 0,
-                            ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.circular(10),
@@ -188,7 +181,7 @@ class _AbsenceState extends State<Absence> {
                           children: [
                             IconButton(
                               onPressed: _presentDatePicker,
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.calendar_month,
                               ),
                             ),
@@ -205,7 +198,7 @@ class _AbsenceState extends State<Absence> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Ngày kết thúc',
                         style: TextStyle(
                           color: Color(0xFF595959),
@@ -228,14 +221,6 @@ class _AbsenceState extends State<Absence> {
                             border: InputBorder.none,
                             contentPadding:
                                 EdgeInsets.symmetric(horizontal: 10.sp),
-                            hintText: 'Nhập email',
-                            hintStyle: const TextStyle(
-                              color: Color(0xFF888888),
-                              fontSize: 14,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.w400,
-                              height: 0,
-                            ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.circular(10),
@@ -251,7 +236,7 @@ class _AbsenceState extends State<Absence> {
                           children: [
                             IconButton(
                               onPressed: _presentDatePicker,
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.calendar_month,
                               ),
                             ),
@@ -292,7 +277,7 @@ class _AbsenceState extends State<Absence> {
                 ),
               ),
             ),
-            SizedBox(height: 50.sp),
+            SizedBox(height: 40.sp),
             ButtonComponent(
               Function: () {},
               text: 'Gửi đơn',
