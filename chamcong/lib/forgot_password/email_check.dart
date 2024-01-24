@@ -1,3 +1,4 @@
+import 'package:chamcong/app_color.dart';
 import 'package:chamcong/component/background/background.dart';
 import 'package:chamcong/component/button.dart/button.dart';
 import 'package:chamcong/forgot_password/verify/verify.dart';
@@ -126,7 +127,7 @@ class _EmailCheckState extends State<EmailCheck> {
                   child: ButtonComponent(
                     Function: validateLogin,
                     text: 'Hoàn tất',
-                    color_button: Color(0xFF279142),
+                    color_button: AppColors.kGreen,
                     color_text: Colors.white,
                   ),
                 ),
