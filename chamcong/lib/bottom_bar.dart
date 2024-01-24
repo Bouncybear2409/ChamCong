@@ -39,9 +39,9 @@ class _BottomBarState extends State<BottomBar> {
           selectedIndex: currentPageIndex,
           destinations: const <Widget>[
             NavigationDestination(
-              selectedIcon: Icon(Icons.check, color: Colors.white),
+              selectedIcon: Icon(Icons.home_outlined, color: Colors.white),
               icon: Icon(
-                Icons.check,
+                Icons.home_outlined,
                 size: 20,
               ),
               label: 'Trang chủ',
