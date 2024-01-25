@@ -17,7 +17,8 @@ class _LoginBodyState extends State<LoginBody> {
   TextEditingController passwordController = TextEditingController();
   String notificatitonUserText = '';
   String notificatitonPasswordText = '';
-  bool ban = false;
+  bool _passwordVisible = false;
+
   void handleForgotPasswordTap() {
     Navigator.push(
       context,
@@ -34,7 +35,7 @@ class _LoginBodyState extends State<LoginBody> {
     String password = passwordController.text;
     bool isValidLogin = checkCredentials(username, password);
 
-    if (isValidLogin == true && ban == false) {
+    if (isValidLogin) {
       setState(() {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const BottomBar()));
@@ -52,7 +53,6 @@ class _LoginBodyState extends State<LoginBody> {
         });
       } else if (password.length < 8) {
         setState(() {
-          notificatitonUserText = '';
           notificatitonPasswordText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
         });
       } else {
@@ -64,8 +64,7 @@ class _LoginBodyState extends State<LoginBody> {
         });
       }
     }
-    if (count >= 3 || ban == true) {
-      ban = true;
+    if (count == 3) {
       showDialog<String>(
         context: context,
         builder: (BuildContext context) => AlertDialog(
@@ -110,7 +109,7 @@ class _LoginBodyState extends State<LoginBody> {
           ),
           Container(
             width: 320.sp,
-            height: 50.sp, // Đã thay đổi chiều cao thành 60.sp
+            height: 50.sp,
             decoration: ShapeDecoration(
               color: Colors.white,
               shape: RoundedRectangleBorder(
@@ -126,7 +125,7 @@ class _LoginBodyState extends State<LoginBody> {
                     controller: usernameController,
                     decoration: InputDecoration(
                       contentPadding:
-                          EdgeInsets.symmetric(horizontal: 10.sp, vertical: 10),
+                          EdgeInsets.symmetric(horizontal: 10.sp, vertical: 20),
                       border: notificatitonUserText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
@@ -165,7 +164,7 @@ class _LoginBodyState extends State<LoginBody> {
               Text(
                 notificatitonUserText,
                 style: TextStyle(
-                  color: const Color(0xFFF96F6F),
+                  color: Color(0xFFF96F6F),
                   fontSize: 12.sp,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w400,
@@ -181,10 +180,7 @@ class _LoginBodyState extends State<LoginBody> {
             decoration: ShapeDecoration(
               color: Colors.white,
               shape: RoundedRectangleBorder(
-                side: BorderSide(
-                  width: 1.sp,
-                  color: const Color(0xFF888888),
-                ),
+                side: BorderSide(width: 1.sp, color: const Color(0xFF888888)),
                 borderRadius: BorderRadius.circular(15.sp),
               ),
             ),
@@ -195,41 +191,38 @@ class _LoginBodyState extends State<LoginBody> {
                     textAlignVertical: TextAlignVertical.center,
                     style: const TextStyle(color: Colors.black),
                     controller: passwordController,
-                    obscureText: true,
+                    obscureText: _passwordVisible,
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.remove_red_eye),
-                      ),
+                          onPressed: () {
+                            setState(() {
+                              _passwordVisible = !_passwordVisible;
+                            });
+                          },
+                          icon: Icon(Icons.remove_red_eye)),
                       contentPadding:
-                          EdgeInsets.symmetric(horizontal: 10.sp, vertical: 10),
+                          EdgeInsets.symmetric(horizontal: 10.sp, vertical: 20),
                       border: notificatitonPasswordText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(13.sp),
-                              borderSide: const BorderSide(
-                                width: 2,
-                                color: Colors.red,
-                              ),
+                              borderSide:
+                                  const BorderSide(width: 2, color: Colors.red),
                             ),
                       hintText: 'Nhập mật khẩu',
                       enabledBorder: notificatitonPasswordText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(13.sp),
-                              borderSide: const BorderSide(
-                                width: 2,
-                                color: Colors.red,
-                              ),
+                              borderSide:
+                                  const BorderSide(width: 2, color: Colors.red),
                             ),
                       focusedBorder: notificatitonPasswordText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(
                               borderRadius: BorderRadius.circular(13.sp),
-                              borderSide: const BorderSide(
-                                width: 2,
-                                color: Colors.red,
-                              ),
+                              borderSide:
+                                  const BorderSide(width: 2, color: Colors.red),
                             ),
                     ),
                   ),
@@ -247,7 +240,7 @@ class _LoginBodyState extends State<LoginBody> {
               Text(
                 notificatitonPasswordText,
                 style: TextStyle(
-                  color: const Color(0xFFF96F6F),
+                  color: Color(0xFFF96F6F),
                   fontSize: 12.sp,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w400,
@@ -278,7 +271,7 @@ class _LoginBodyState extends State<LoginBody> {
           ButtonComponent(
             onTap: validateLogin,
             text: 'Đăng nhập',
-            color_button: const Color(0xFF279142),
+            color_button: Color(0xFF279142),
             color_text: Colors.white,
           )
         ],
