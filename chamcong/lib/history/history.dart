@@ -1,5 +1,4 @@
 import 'package:chamcong/component/appbar/appbar.dart';
-
 import 'package:flutter/material.dart';
 
 class History extends StatelessWidget {
