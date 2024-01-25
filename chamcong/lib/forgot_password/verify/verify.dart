@@ -124,7 +124,7 @@ class _VerifyPageState extends State<VerifyPage> {
                     child: ButtonComponent(
                         onTap: () {
                           // otp valid => vao trang tiep theo
-                          // otp invalid => show loi
+                          // otp invalid => show loi8
                           if (otp == '222222') {
                             setState(() {
                               Navigator.push(
