@@ -1,3 +1,4 @@
+import 'package:chamcong/absence/absence.dart';
 import 'package:chamcong/history/history.dart';
 import 'package:chamcong/home/home_page.dart';
 import 'package:chamcong/profile/profile.dart';
@@ -73,6 +74,9 @@ class _BottomBarState extends State<BottomBar> {
       body: <Widget>[
         /// Home page
         const HomePage(),
+
+        /// Absence page
+        const Absence(),
 
         /// History page
         const History(),
