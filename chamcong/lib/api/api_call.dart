@@ -10,7 +10,7 @@ class ApiCall extends StatelessWidget {
 
     var response = await dio.get(ApiUrl.absenceReport);
 
-    return response.data['data'];
+    return response.data;
   }
 
   @override

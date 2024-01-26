@@ -1,6 +1,4 @@
 import 'package:chamcong/app_images.dart';
-import 'package:chamcong/component/appbar/appbar.dart';
-
 import 'package:chamcong/component/button.dart/button.dart';
 import 'package:chamcong/home/clock.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +38,6 @@ class HomePage extends StatelessWidget {
           'Trang chủ',
           style: TextStyle(color: Colors.white),
         ),
-        flexibleSpace: const AppbarComponent(),
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),

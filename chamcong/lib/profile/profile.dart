@@ -1,5 +1,4 @@
 import 'package:chamcong/app_images.dart';
-import 'package:chamcong/component/appbar/appbar.dart';
 import 'package:chamcong/component/button.dart/button.dart';
 import 'package:chamcong/login/login_page.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +71,6 @@ class _ProfilePageState extends State<ProfilePage> {
           'Tài khoản',
           style: TextStyle(color: Colors.white),
         ),
-        flexibleSpace: const AppbarComponent(),
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),
