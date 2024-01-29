@@ -1,4 +1,4 @@
-import 'package:chamcong/splash/splash.dart';
+import 'package:chamcong/pages/slpash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

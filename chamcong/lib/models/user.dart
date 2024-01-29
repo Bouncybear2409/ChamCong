@@ -1,12 +1,12 @@
-class UsersResponse {
+class User {
   bool? success;
   int? status;
   String? message;
   List<Data>? data;
 
-  UsersResponse({this.success, this.status, this.message, this.data});
+  User({this.success, this.status, this.message, this.data});
 
-  UsersResponse.fromJson(Map<String, dynamic> json) {
+  User.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     status = json['status'];
     message = json['message'];
@@ -31,58 +31,42 @@ class UsersResponse {
 }
 
 class Data {
-  String? userName;
-  String? passWord;
+  String? username;
+  String? password;
   String? firstName;
   String? lastName;
   String? email;
-  bool? isAdmin;
-  String? birthday;
-  String? position;
-  String? departmentName;
-  String? describe;
+  Null? departmentName;
   String? phoneNumber;
 
   Data(
-      {this.userName,
-      this.passWord,
+      {this.username,
+      this.password,
       this.firstName,
       this.lastName,
       this.email,
-      this.isAdmin,
-      this.birthday,
-      this.position,
       this.departmentName,
-      this.describe,
       this.phoneNumber});
 
   Data.fromJson(Map<String, dynamic> json) {
-    userName = json['userName'];
-    passWord = json['passWord'];
-    firstName = json['firstName'];
-    lastName = json['lastName'];
+    username = json['username'];
+    password = json['password'];
+    firstName = json['first_name'];
+    lastName = json['last_name'];
     email = json['email'];
-    isAdmin = json['isAdmin'];
-    birthday = json['birthday'];
-    position = json['position'];
-    departmentName = json['departmentName'];
-    describe = json['describe'];
-    phoneNumber = json['phoneNumber'];
+    departmentName = json['department_name'];
+    phoneNumber = json['phone_number'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['userName'] = this.userName;
-    data['passWord'] = this.passWord;
-    data['firstName'] = this.firstName;
-    data['lastName'] = this.lastName;
+    data['username'] = this.username;
+    data['password'] = this.password;
+    data['first_name'] = this.firstName;
+    data['last_name'] = this.lastName;
     data['email'] = this.email;
-    data['isAdmin'] = this.isAdmin;
-    data['birthday'] = this.birthday;
-    data['position'] = this.position;
-    data['departmentName'] = this.departmentName;
-    data['describe'] = this.describe;
-    data['phoneNumber'] = this.phoneNumber;
+    data['department_name'] = this.departmentName;
+    data['phone_number'] = this.phoneNumber;
     return data;
   }
 }

@@ -1,6 +1,6 @@
-import 'package:chamcong/component/background/background.dart';
-import 'package:chamcong/login/login_body.dart';
-import 'package:chamcong/splash/splash.dart';
+import 'package:chamcong/pages/widgets/background/background.dart';
+import 'package:chamcong/pages/login/blocks/login_body.dart';
+import 'package:chamcong/pages/slpash/splash_page.dart';
 
 import 'package:flutter/material.dart';
 

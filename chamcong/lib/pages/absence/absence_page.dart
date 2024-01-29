@@ -1,7 +1,8 @@
+import 'package:chamcong/pages/absence/blocks/absences_block.dart';
 import 'package:flutter/material.dart';
 
-class History extends StatelessWidget {
-  const History({super.key});
+class Absence extends StatelessWidget {
+  const Absence({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,12 +11,13 @@ class History extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          'Lịch sử',
+          'Tạo đơn nghỉ phép',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),
+      body: const AbsenceBlock(),
     );
   }
 }

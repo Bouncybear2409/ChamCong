@@ -1,8 +1,8 @@
-import 'package:chamcong/app_color.dart';
-import 'package:chamcong/component/background/background.dart';
-import 'package:chamcong/component/button.dart/button.dart';
-import 'package:chamcong/forgot_password/verify/otp.dart';
-import 'package:chamcong/new_pass/new_password.dart';
+import 'package:chamcong/pages/widgets/app_color.dart';
+import 'package:chamcong/pages/widgets/background/background.dart';
+import 'package:chamcong/pages/widgets/button.dart/button.dart';
+import 'package:chamcong/pages/forgot_password/verify/otp.dart';
+import 'package:chamcong/pages/recover/new_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

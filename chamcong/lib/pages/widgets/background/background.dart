@@ -1,4 +1,4 @@
-import 'package:chamcong/app_images.dart';
+import 'package:chamcong/pages/widgets/app_images.dart';
 import 'package:flutter/material.dart';
 
 class BackGround extends StatelessWidget {

@@ -1,7 +1,7 @@
-import 'package:chamcong/absence/absence.dart';
-import 'package:chamcong/history/history.dart';
-import 'package:chamcong/home/home_page.dart';
-import 'package:chamcong/profile/profile.dart';
+import 'package:chamcong/pages/absence/absence_page.dart';
+import 'package:chamcong/pages/history/history_page.dart';
+import 'package:chamcong/pages/home/home_page.dart';
+import 'package:chamcong/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {
@@ -79,7 +79,7 @@ class _BottomBarState extends State<BottomBar> {
         const Absence(),
 
         /// History page
-        const History(),
+        const HistoryPage(),
 
         /// Profile page
         const ProfilePage(),
