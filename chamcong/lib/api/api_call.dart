@@ -6,15 +6,16 @@ import 'package:dio/dio.dart';
 class ApiCall {
   static Dio dio = Dio();
 
-  static Future<User> loginUser(String username, String password) async {
+  static Future<UserLoginResponse> loginUser(
+      String email, String password, String userType) async {
     try {
       final response = await dio.post(
         ApiUrl.login,
-        data: {'username': username, 'password': password},
+        data: {'email': email, 'password': password, 'user_type': userType},
       );
 
-      if (response.statusCode == 200) {
-        return User.fromJson(response.data);
+      if (response.statusCode == 201) {
+        return UserLoginResponse.fromJson(response.data);
       } else {
         throw Exception('Failed to login');
       }

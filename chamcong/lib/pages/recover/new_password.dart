@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NewPassword extends StatefulWidget {
-  const NewPassword({super.key});
-
+  const NewPassword({super.key, required this.userType});
+  final String userType;
   @override
   State<NewPassword> createState() => _NewPasswordState();
 }
@@ -40,7 +40,10 @@ class _NewPasswordState extends State<NewPassword> {
         notificatitonText = '';
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const LoginPage()),
+          MaterialPageRoute(
+              builder: (context) => LoginPage(
+                    userType: widget.userType,
+                  )),
         );
       });
     } else {

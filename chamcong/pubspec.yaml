@@ -45,6 +45,7 @@ dependencies:
   email_validator: ^2.1.17
   scrollable_text_view: ^0.0.4
   http: ^1.2.0
+  localstorage: ^4.0.1+4
 
 dev_dependencies:
   flutter_test:

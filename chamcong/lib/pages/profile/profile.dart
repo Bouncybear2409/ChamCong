@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
-
+  const ProfilePage({super.key, required this.userType});
+  final String userType;
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
@@ -47,7 +47,9 @@ class _ProfilePageState extends State<ProfilePage> {
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const LoginPage(),
+                builder: (context) => LoginPage(
+                  userType: widget.userType,
+                ),
               ),
             ),
             child: const Text(

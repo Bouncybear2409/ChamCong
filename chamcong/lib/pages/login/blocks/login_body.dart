@@ -1,4 +1,5 @@
 import 'package:chamcong/api/api_call.dart';
+import 'package:chamcong/models/user.dart';
 import 'package:chamcong/pages/widgets/button.dart/button.dart';
 import 'package:chamcong/pages/bottomBar/bottom_bar.dart';
 import 'package:chamcong/pages/forgot_password/email_check.dart';
@@ -6,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginBody extends StatefulWidget {
-  const LoginBody({super.key});
-
+  const LoginBody({super.key, required this.userType});
+  final String userType;
   @override
   State<LoginBody> createState() => _LoginBodyState();
 }
@@ -24,81 +25,91 @@ class _LoginBodyState extends State<LoginBody> {
   void handleForgotPasswordTap() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const EmailCheck()),
+      MaterialPageRoute(
+          builder: (context) => EmailCheck(
+                userType: widget.userType,
+              )),
     );
   }
 
-  bool checkCredentials(String username, String password) {
-    return username == 'user@gmail.com' && password == 'password';
-  }
+  // bool checkCredentials(String username, String password) {
+  //   return username == 'user@gmail.com' && password == 'password';
+  // }
 
   Future<void> validateLogin() async {
     String username = usernameController.text;
     String password = passwordController.text;
 
-    bool isValidLogin = checkCredentials(username, password);
-    // User user = await ApiCall.loginUser(username, password);
-    if (isValidLogin) {
-      setState(() {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const BottomBar()));
-      });
-    } else {
-      if (username.isEmpty) {
+    // bool isValidLogin = checkCredentials(username, password);
+    try {
+      UserLoginResponse user =
+          await ApiCall.loginUser(username, password, widget.userType);
+      if (user.success == true) {
         setState(() {
-          notificatitonUserText = 'Vui lòng nhập tài khoản.';
-          notificatitonPasswordText = '';
-        });
-      } else if (password.isEmpty) {
-        setState(() {
-          notificatitonUserText = '';
-          notificatitonPasswordText = 'Vui lòng nhập mật khẩu.';
-        });
-      } else if (password.length < 8) {
-        setState(() {
-          notificatitonPasswordText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => BottomBar(
+                        userType: widget.userType,
+                      )));
         });
       } else {
-        count++;
-        setState(() {
-          notificatitonUserText = '';
-          notificatitonPasswordText =
-              'Thông tin đăng nhập không hợp lệ, vui lòng nhập lại.';
-        });
+        if (username.isEmpty) {
+          setState(() {
+            notificatitonUserText = 'Vui lòng nhập tài khoản.';
+            notificatitonPasswordText = '';
+          });
+        } else if (password.isEmpty) {
+          setState(() {
+            notificatitonUserText = '';
+            notificatitonPasswordText = 'Vui lòng nhập mật khẩu.';
+          });
+        } else if (password.length < 8) {
+          setState(() {
+            notificatitonPasswordText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
+          });
+        } else {
+          count++;
+          setState(() {
+            notificatitonUserText = '';
+            notificatitonPasswordText =
+                'Thông tin đăng nhập không hợp lệ, vui lòng nhập lại.';
+          });
+        }
       }
-    }
-    if (count == 3) {
-      showDialog<String>(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          title: Text(
-            'Bị khóa đăng nhập',
-            style: TextStyle(
-              color: const Color(0xFF2C2C2C),
-              fontSize: 24.sp,
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.w400,
+      if (count == 3) {
+        showDialog<String>(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+            title: Text(
+              'Bị khóa đăng nhập',
+              style: TextStyle(
+                color: const Color(0xFF2C2C2C),
+                fontSize: 24.sp,
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.w400,
+              ),
             ),
+            content: Text(
+              'Bạn đã nhập sai tài khoản hoặc mật khẩu quá nhiều lần. Bạn bị khóa đăng nhập trong 5 phút. Vui lòng đăng nhập lại sau 5 phút.',
+              style: TextStyle(
+                color: const Color(0xFF49454F),
+                fontSize: 14.sp,
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.w400,
+                letterSpacing: 0.25,
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.pop(context, 'OK'),
+                child: const Text('Đồng ý'),
+              ),
+            ],
           ),
-          content: Text(
-            'Bạn đã nhập sai tài khoản hoặc mật khẩu quá nhiều lần. Bạn bị khóa đăng nhập trong 5 phút. Vui lòng đăng nhập lại sau 5 phút.',
-            style: TextStyle(
-              color: const Color(0xFF49454F),
-              fontSize: 14.sp,
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.w400,
-              letterSpacing: 0.25,
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'OK'),
-              child: const Text('Đồng ý'),
-            ),
-          ],
-        ),
-      );
-    }
+        );
+      }
+    } catch (e) {}
   }
 
   @override

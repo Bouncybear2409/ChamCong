@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class VerifyPage extends StatefulWidget {
-  const VerifyPage({Key? key}) : super(key: key);
-
+  const VerifyPage({Key? key, required this.userType}) : super(key: key);
+  final String userType;
   @override
   State<VerifyPage> createState() => _VerifyPageState();
 }
@@ -130,7 +130,9 @@ class _VerifyPageState extends State<VerifyPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => NewPassword(),
+                                  builder: (context) => NewPassword(
+                                    userType: widget.userType,
+                                  ),
                                 ),
                               );
                             });

@@ -1,21 +1,16 @@
-class User {
+class UserLoginResponse {
   bool? success;
   int? status;
   String? message;
-  List<Data>? data;
+  Data? data;
 
-  User({this.success, this.status, this.message, this.data});
+  UserLoginResponse({this.success, this.status, this.message, this.data});
 
-  User.fromJson(Map<String, dynamic> json) {
+  UserLoginResponse.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     status = json['status'];
     message = json['message'];
-    if (json['data'] != null) {
-      data = <Data>[];
-      json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
-      });
-    }
+    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -24,49 +19,69 @@ class User {
     data['status'] = this.status;
     data['message'] = this.message;
     if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
+      data['data'] = this.data!.toJson();
     }
     return data;
   }
 }
 
 class Data {
-  String? username;
-  String? password;
-  String? firstName;
-  String? lastName;
-  String? email;
-  Null? departmentName;
-  String? phoneNumber;
+  String? accessToken;
+  String? refreshToken;
+  Info? info;
 
-  Data(
-      {this.username,
-      this.password,
-      this.firstName,
-      this.lastName,
-      this.email,
-      this.departmentName,
-      this.phoneNumber});
+  Data({this.accessToken, this.refreshToken, this.info});
 
   Data.fromJson(Map<String, dynamic> json) {
-    username = json['username'];
-    password = json['password'];
-    firstName = json['first_name'];
-    lastName = json['last_name'];
-    email = json['email'];
-    departmentName = json['department_name'];
-    phoneNumber = json['phone_number'];
+    accessToken = json['access_token'];
+    refreshToken = json['refresh_token'];
+    info = json['info'] != null ? new Info.fromJson(json['info']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['username'] = this.username;
-    data['password'] = this.password;
+    data['access_token'] = this.accessToken;
+    data['refresh_token'] = this.refreshToken;
+    if (this.info != null) {
+      data['info'] = this.info!.toJson();
+    }
+    return data;
+  }
+}
+
+class Info {
+  int? id;
+  String? phoneNumber;
+  String? email;
+  String? firstName;
+  String? lastName;
+  String? userType;
+
+  Info(
+      {this.id,
+      this.phoneNumber,
+      this.email,
+      this.firstName,
+      this.lastName,
+      this.userType});
+
+  Info.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    phoneNumber = json['phone_number'];
+    email = json['email'];
+    firstName = json['first_name'];
+    lastName = json['last_name'];
+    userType = json['user_type'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['phone_number'] = this.phoneNumber;
+    data['email'] = this.email;
     data['first_name'] = this.firstName;
     data['last_name'] = this.lastName;
-    data['email'] = this.email;
-    data['department_name'] = this.departmentName;
-    data['phone_number'] = this.phoneNumber;
+    data['user_type'] = this.userType;
     return data;
   }
 }

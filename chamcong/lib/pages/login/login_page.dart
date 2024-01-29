@@ -5,8 +5,8 @@ import 'package:chamcong/pages/slpash/splash_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
-
+  const LoginPage({Key? key, required this.userType}) : super(key: key);
+  final String userType;
   @override
   Widget build(BuildContext context) {
     // ignore: non_constant_identifier_names
@@ -44,10 +44,10 @@ class LoginPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
-        child: const Stack(
+        child: Stack(
           children: [
             BackGround(),
-            LoginBody(),
+            LoginBody(userType: userType),
           ],
         ),
       ),

@@ -11,6 +11,7 @@ class ButtonComponent extends StatelessWidget {
     required this.color_button,
     // ignore: non_constant_identifier_names
     required this.color_text,
+    this.userType,
   });
   // ignore: prefer_typing_uninitialized_variables, non_constant_identifier_names
   final VoidCallback onTap;
@@ -19,6 +20,7 @@ class ButtonComponent extends StatelessWidget {
   final Color color_text;
   // ignore: non_constant_identifier_names
   final Color color_button;
+  final String? userType;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

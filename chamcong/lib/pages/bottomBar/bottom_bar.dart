@@ -5,8 +5,8 @@ import 'package:chamcong/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {
-  const BottomBar({super.key});
-
+  const BottomBar({super.key, required this.userType});
+  final String userType;
   @override
   State<BottomBar> createState() => _BottomBarState();
 }
@@ -82,7 +82,9 @@ class _BottomBarState extends State<BottomBar> {
         const HistoryPage(),
 
         /// Profile page
-        const ProfilePage(),
+        ProfilePage(
+          userType: widget.userType,
+        ),
       ][currentPageIndex],
     );
   }

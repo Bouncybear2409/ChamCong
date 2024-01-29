@@ -10,11 +10,13 @@ class SplashBlocks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: non_constant_identifier_names
-    void NavigatePage() {
+    void NavigatePage(String userType) {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const LoginPage(),
+          builder: (context) => LoginPage(
+            userType: userType,
+          ),
         ),
       );
     }
@@ -38,7 +40,9 @@ class SplashBlocks extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 33.sp, bottom: 20.sp),
               child: ButtonComponent(
-                onTap: NavigatePage,
+                onTap: () {
+                  NavigatePage('EMPLOYEE');
+                },
                 text: 'Nhân viên',
                 color_button: const Color(0xFF279142),
                 color_text: Colors.white,
@@ -46,7 +50,7 @@ class SplashBlocks extends StatelessWidget {
             ),
             ButtonComponent(
               onTap: () {
-                NavigatePage;
+                NavigatePage('ADMIN');
               },
               text: 'Quản trị viên',
               color_button: const Color(0xFF737373),

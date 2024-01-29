@@ -8,8 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:core';
 
 class EmailCheck extends StatefulWidget {
-  const EmailCheck({super.key});
-
+  const EmailCheck({super.key, required this.userType});
+  final String userType;
   @override
   State<EmailCheck> createState() => _EmailCheckState();
 }
@@ -38,7 +38,9 @@ class _EmailCheckState extends State<EmailCheck> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const VerifyPage(),
+          builder: (context) => VerifyPage(
+            userType: widget.userType,
+          ),
         ),
       );
     } else {
