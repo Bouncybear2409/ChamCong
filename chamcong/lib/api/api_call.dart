@@ -9,7 +9,7 @@ class ApiCall {
   static Future<User> loginUser(String username, String password) async {
     try {
       final response = await dio.post(
-        ApiUrl.userReport,
+        ApiUrl.login,
         data: {'username': username, 'password': password},
       );
 

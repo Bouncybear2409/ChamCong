@@ -1,5 +1,4 @@
 import 'package:chamcong/api/api_call.dart';
-import 'package:chamcong/models/user.dart';
 import 'package:chamcong/pages/widgets/button.dart/button.dart';
 import 'package:chamcong/pages/bottomBar/bottom_bar.dart';
 import 'package:chamcong/pages/forgot_password/email_check.dart';
@@ -20,7 +19,7 @@ class _LoginBodyState extends State<LoginBody> {
   TextEditingController passwordController = TextEditingController();
   String notificatitonUserText = '';
   String notificatitonPasswordText = '';
-  bool _passwordVisible = false;
+  bool _passwordVisible = true;
 
   void handleForgotPasswordTap() {
     Navigator.push(
@@ -37,9 +36,9 @@ class _LoginBodyState extends State<LoginBody> {
     String username = usernameController.text;
     String password = passwordController.text;
 
-    // bool isValidLogin = checkCredentials(username, password);
-    User user = await ApiCall.loginUser(username, password);
-    if (user.success == true) {
+    bool isValidLogin = checkCredentials(username, password);
+    // User user = await ApiCall.loginUser(username, password);
+    if (isValidLogin) {
       setState(() {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const BottomBar()));
