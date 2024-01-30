@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
+  const HomePage({super.key, required this.accessToken});
+  final String? accessToken;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +23,9 @@ class HomePage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          const HeaderBlock(),
+          HeaderBlock(
+            accessToken: accessToken,
+          ),
           const Clock(),
           const DateAndTime(),
           Padding(

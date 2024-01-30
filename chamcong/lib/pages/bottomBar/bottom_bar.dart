@@ -1,11 +1,13 @@
 import 'package:chamcong/pages/absence/absence_page.dart';
 import 'package:chamcong/pages/history/history_page.dart';
 import 'package:chamcong/pages/home/home_page.dart';
+import 'package:chamcong/pages/login/blocks/login_body.dart';
 import 'package:chamcong/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {
-  const BottomBar({super.key, required this.userType});
+  BottomBar({super.key, required this.userType, required this.accessToken});
+  String? accessToken;
   final String userType;
   @override
   State<BottomBar> createState() => _BottomBarState();
@@ -13,6 +15,15 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   int currentPageIndex = 0;
+  @override
+  void initState() {
+    super.initState();
+    // Retrieve accessToken from local storage
+    final String? accessToken = storage.getItem('accessToken');
+    if (accessToken != null) {
+      widget.accessToken = accessToken;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +84,7 @@ class _BottomBarState extends State<BottomBar> {
       ),
       body: <Widget>[
         /// Home page
-        const HomePage(),
+        HomePage(accessToken: widget.accessToken),
 
         /// Absence page
         const Absence(),

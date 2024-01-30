@@ -5,6 +5,7 @@ import 'package:chamcong/pages/bottomBar/bottom_bar.dart';
 import 'package:chamcong/pages/forgot_password/email_check.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:localstorage/localstorage.dart';
 
 class LoginBody extends StatefulWidget {
   const LoginBody({super.key, required this.userType});
@@ -12,6 +13,8 @@ class LoginBody extends StatefulWidget {
   @override
   State<LoginBody> createState() => _LoginBodyState();
 }
+
+final LocalStorage storage = new LocalStorage('access_token');
 
 class _LoginBodyState extends State<LoginBody> {
   ApiCall api = ApiCall();
@@ -60,12 +63,14 @@ class _LoginBodyState extends State<LoginBody> {
         UserLoginResponse user =
             await ApiCall.loginUser(username, password, widget.userType);
         if (user.success == true) {
+          storage.setItem('accessToken', user.data!.accessToken);
           setState(
             () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => BottomBar(
+                    accessToken: user.data!.accessToken,
                     userType: widget.userType,
                   ),
                 ),
