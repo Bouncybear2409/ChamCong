@@ -1,6 +1,6 @@
-import 'package:chamcong/api/api_call.dart';
+import 'package:chamcong/data/network/api/api_call.dart';
 import 'package:chamcong/pages/history/widgets/history_item.dart';
-import 'package:chamcong/models/absence.dart';
+import 'package:chamcong/data/models/absence.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

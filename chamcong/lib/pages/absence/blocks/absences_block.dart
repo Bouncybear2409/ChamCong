@@ -1,6 +1,7 @@
 import 'package:chamcong/pages/widgets/button.dart/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 class AbsenceBlock extends StatefulWidget {
   const AbsenceBlock({super.key});
@@ -11,8 +12,10 @@ class AbsenceBlock extends StatefulWidget {
 
 class _AbsenceBlockState extends State<AbsenceBlock> {
   // ignore: unused_field
-  DateTime? _selectedDate;
-  void _presentDatePicker() async {
+  final formatter = DateFormat.yMd();
+  DateTime? startDate;
+  DateTime? endDate;
+  void startDatePicker() async {
     final now = DateTime.now();
     final firstDate = DateTime(now.year - 1, now.month, now.day);
     final pickedDate = await showDatePicker(
@@ -21,7 +24,20 @@ class _AbsenceBlockState extends State<AbsenceBlock> {
       lastDate: now,
     );
     setState(() {
-      _selectedDate = pickedDate;
+      startDate = pickedDate;
+    });
+  }
+
+  void endtDatePicker() async {
+    final now = DateTime.now();
+    final firstDate = DateTime(now.year - 1, now.month, now.day);
+    final pickedDate = await showDatePicker(
+      context: context,
+      firstDate: firstDate,
+      lastDate: now,
+    );
+    setState(() {
+      endDate = pickedDate;
     });
   }
 
@@ -57,30 +73,17 @@ class _AbsenceBlockState extends State<AbsenceBlock> {
                           height: 8.sp,
                         ),
                         Stack(children: [
-                          TextField(
-                            keyboardType: TextInputType.phone,
-                            style: const TextStyle(color: Color(0xFF2E2E2E)),
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: const Color(0xFFDADADA),
-                              border: InputBorder.none,
-                              contentPadding:
-                                  EdgeInsets.symmetric(horizontal: 10.sp),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
+                          Text(
+                            startDate == null
+                                ? 'No date selected'
+                                : formatter.format(startDate!),
+                            style: TextStyle(color: Colors.white),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               IconButton(
-                                onPressed: _presentDatePicker,
+                                onPressed: startDatePicker,
                                 icon: const Icon(
                                   Icons.calendar_month,
                                 ),
@@ -112,30 +115,17 @@ class _AbsenceBlockState extends State<AbsenceBlock> {
                           height: 8.sp,
                         ),
                         Stack(children: [
-                          TextField(
-                            keyboardType: TextInputType.phone,
-                            style: const TextStyle(color: Color(0xFF2E2E2E)),
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: const Color(0xFFDADADA),
-                              border: InputBorder.none,
-                              contentPadding:
-                                  EdgeInsets.symmetric(horizontal: 10.sp),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
+                          Text(
+                            endDate == null
+                                ? 'No date selected'
+                                : formatter.format(endDate!),
+                            style: TextStyle(color: Colors.white),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               IconButton(
-                                onPressed: _presentDatePicker,
+                                onPressed: endtDatePicker,
                                 icon: const Icon(
                                   Icons.calendar_month,
                                 ),

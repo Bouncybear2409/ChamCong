@@ -1,5 +1,5 @@
-import 'package:chamcong/api/api_call.dart';
-import 'package:chamcong/models/userloginresponse.dart';
+import 'package:chamcong/data/network/api/api_call.dart';
+import 'package:chamcong/data/models/userloginresponse.dart';
 import 'package:chamcong/pages/widgets/button.dart/button.dart';
 import 'package:chamcong/pages/bottomBar/bottom_bar.dart';
 import 'package:chamcong/pages/forgot_password/email_check.dart';
@@ -42,74 +42,79 @@ class _LoginBodyState extends State<LoginBody> {
 
     // bool isValidLogin = checkCredentials(username, password);
     try {
-      UserLoginResponse user =
-          await ApiCall.loginUser(username, password, widget.userType);
-      if (user.success == true) {
+      if (username.isEmpty) {
         setState(() {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => BottomBar(
-                        userType: widget.userType,
-                      )));
+          notificatitonUserText = 'Vui lòng nhập tài khoản.';
+          notificatitonPasswordText = '';
+        });
+      } else if (password.isEmpty) {
+        setState(() {
+          notificatitonUserText = '';
+          notificatitonPasswordText = 'Vui lòng nhập mật khẩu.';
+        });
+      } else if (password.length < 8) {
+        setState(() {
+          notificatitonPasswordText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
         });
       } else {
-        if (username.isEmpty) {
-          setState(() {
-            notificatitonUserText = 'Vui lòng nhập tài khoản.';
-            notificatitonPasswordText = '';
-          });
-        } else if (password.isEmpty) {
-          setState(() {
-            notificatitonUserText = '';
-            notificatitonPasswordText = 'Vui lòng nhập mật khẩu.';
-          });
-        } else if (password.length < 8) {
-          setState(() {
-            notificatitonPasswordText = 'Mật khẩu phải lớn hơn hoặc bằng 8';
-          });
-        } else {
-          count++;
-          setState(() {
-            notificatitonUserText = '';
-            notificatitonPasswordText =
-                'Thông tin đăng nhập không hợp lệ, vui lòng nhập lại.';
-          });
+        UserLoginResponse user =
+            await ApiCall.loginUser(username, password, widget.userType);
+        if (user.success == true) {
+          setState(
+            () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BottomBar(
+                    userType: widget.userType,
+                  ),
+                ),
+              );
+            },
+          );
         }
       }
-      if (count == 3) {
-        showDialog<String>(
-          context: context,
-          builder: (BuildContext context) => AlertDialog(
-            title: Text(
-              'Bị khóa đăng nhập',
-              style: TextStyle(
-                color: const Color(0xFF2C2C2C),
-                fontSize: 24.sp,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w400,
-              ),
+    } catch (e) {
+      count++;
+      setState(() {
+        notificatitonUserText = '';
+        notificatitonPasswordText =
+            'Thông tin đăng nhập không hợp lệ, vui lòng nhập lại.';
+      });
+    }
+
+    if (count == 3) {
+      showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: Text(
+            'Bị khóa đăng nhập',
+            style: TextStyle(
+              color: const Color(0xFF2C2C2C),
+              fontSize: 24.sp,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w400,
             ),
-            content: Text(
-              'Bạn đã nhập sai tài khoản hoặc mật khẩu quá nhiều lần. Bạn bị khóa đăng nhập trong 5 phút. Vui lòng đăng nhập lại sau 5 phút.',
-              style: TextStyle(
-                color: const Color(0xFF49454F),
-                fontSize: 14.sp,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w400,
-                letterSpacing: 0.25,
-              ),
-            ),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () => Navigator.pop(context, 'OK'),
-                child: const Text('Đồng ý'),
-              ),
-            ],
           ),
-        );
-      }
-    } catch (e) {}
+          content: Text(
+            'Bạn đã nhập sai tài khoản hoặc mật khẩu quá nhiều lần. Bạn bị khóa đăng nhập trong 5 phút. Vui lòng đăng nhập lại sau 5 phút.',
+            style: TextStyle(
+              color: const Color(0xFF49454F),
+              fontSize: 14.sp,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w400,
+              letterSpacing: 0.25,
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'OK'),
+              child: const Text('Đồng ý'),
+            ),
+          ],
+        ),
+      );
+    }
   }
 
   @override

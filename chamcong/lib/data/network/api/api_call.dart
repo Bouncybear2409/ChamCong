@@ -1,6 +1,6 @@
-import 'package:chamcong/api/api_url.dart';
-import 'package:chamcong/models/absence.dart';
-import 'package:chamcong/models/userloginresponse.dart';
+import 'package:chamcong/data/network/api/api_url.dart';
+import 'package:chamcong/data/models/absence.dart';
+import 'package:chamcong/data/models/userloginresponse.dart';
 import 'package:dio/dio.dart';
 
 class ApiCall {
