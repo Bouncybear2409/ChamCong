@@ -1,6 +1,6 @@
+import 'package:chamcong/pages/slpash/splash_page.dart';
 import 'package:chamcong/pages/widgets/app_images.dart';
 import 'package:chamcong/pages/widgets/button.dart/button.dart';
-import 'package:chamcong/pages/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -47,9 +47,7 @@ class _ProfilePageState extends State<ProfilePage> {
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => LoginPage(
-                  userType: widget.userType,
-                ),
+                builder: (context) => const Splash(),
               ),
             ),
             child: const Text(

@@ -1,5 +1,5 @@
 import 'package:chamcong/api/api_call.dart';
-import 'package:chamcong/models/user.dart';
+import 'package:chamcong/models/userloginresponse.dart';
 import 'package:chamcong/pages/widgets/button.dart/button.dart';
 import 'package:chamcong/pages/bottomBar/bottom_bar.dart';
 import 'package:chamcong/pages/forgot_password/email_check.dart';
@@ -147,7 +147,7 @@ class _LoginBodyState extends State<LoginBody> {
                               borderSide:
                                   const BorderSide(width: 2, color: Colors.red),
                             ),
-                      hintText: 'Nhập tài khoản',
+                      hintText: 'Nhập email',
                       enabledBorder: notificatitonUserText.isEmpty
                           ? InputBorder.none
                           : OutlineInputBorder(

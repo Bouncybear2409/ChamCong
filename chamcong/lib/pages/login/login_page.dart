@@ -3,6 +3,7 @@ import 'package:chamcong/pages/login/blocks/login_body.dart';
 import 'package:chamcong/pages/slpash/splash_page.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key, required this.userType}) : super(key: key);
@@ -30,11 +31,11 @@ class LoginPage extends StatelessWidget {
         ),
         backgroundColor: Colors.black,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Đăng nhập',
           style: TextStyle(
             color: Color.fromARGB(255, 255, 255, 255),
-            fontSize: 20,
+            fontSize: 20.sp,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w500,
             height: 0,
@@ -46,7 +47,7 @@ class LoginPage extends StatelessWidget {
         onTap: () => FocusScope.of(context).unfocus(),
         child: Stack(
           children: [
-            BackGround(),
+            const BackGround(),
             LoginBody(userType: userType),
           ],
         ),

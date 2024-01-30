@@ -1,10 +1,28 @@
 import 'package:chamcong/api/api_url.dart';
 import 'package:chamcong/models/absence.dart';
-import 'package:chamcong/models/user.dart';
+import 'package:chamcong/models/userloginresponse.dart';
 import 'package:dio/dio.dart';
 
 class ApiCall {
   static Dio dio = Dio();
+
+  // static Future<CreateLeaveRequest> createLeaveRequest(
+  //     String startDate, String endDate, String userType) async {
+  //   try {
+  //     final response = await dio.post(
+  //       ApiUrl.login,
+  //       data: {'email': email, 'password': password, 'user_type': userType},
+  //     );
+
+  //     if (response.statusCode == 201) {
+  //       return UserLoginResponse.fromJson(response.data);
+  //     } else {
+  //       throw Exception('Failed to login');
+  //     }
+  //   } catch (e) {
+  //     throw Exception('Failed to login. Error: $e');
+  //   }
+  // }
 
   static Future<UserLoginResponse> loginUser(
       String email, String password, String userType) async {
