@@ -8,4 +8,6 @@ class AppImages {
   static const String imgAvatarProfile = '$_imageAssets/avatar_profile.png';
   static const String imgBackGround = '$_imageAssets/background.jpg';
   static const String imgAppBar = '$_imageAssets/appbar.png';
+  static const String imgLogout = '$_imageAssets/power_settings_new.png';
+  static const String imgLockin = '$_imageAssets/lock.png';
 }
