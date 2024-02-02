@@ -10,4 +10,11 @@ class AppImages {
   static const String imgAppBar = '$_imageAssets/appbar.png';
   static const String imgLogout = '$_imageAssets/power_settings_new.png';
   static const String imgLockin = '$_imageAssets/lock.png';
+  static const String imgPen = '$_imageAssets/Vector.png';
+  static const String imgDownArrow = '$_imageAssets/expand_more.png';
+  static const String imgEmployee = '$_imageAssets/employee.png';
+  static const String imgAdmin = '$_imageAssets/admin.png';
+  static const String imgBackGroundSplash =
+      '$_imageAssets/background_splash.jpg';
+  static const String imgLogo = '$_imageAssets/logo.png';
 }

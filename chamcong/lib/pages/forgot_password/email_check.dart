@@ -1,5 +1,6 @@
 import 'package:chamcong/pages/widgets/app_color.dart';
 import 'package:chamcong/pages/widgets/background/background.dart';
+import 'package:chamcong/pages/widgets/background/background_splash.dart';
 import 'package:chamcong/pages/widgets/button.dart/button.dart';
 import 'package:chamcong/pages/forgot_password/verify/verify.dart';
 import 'package:email_validator/email_validator.dart';
@@ -79,7 +80,7 @@ class _EmailCheckState extends State<EmailCheck> {
         ),
       ),
       body: Stack(children: [
-        const BackGround(),
+        BackGroundSplash(),
         Padding(
           padding: EdgeInsets.all(16.0.sp),
           child: Column(

@@ -34,6 +34,7 @@ class HeaderBlock extends StatelessWidget {
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
                       height: 0,
+                      color: Colors.white,
                     ),
                   ),
                   Text(
@@ -43,6 +44,7 @@ class HeaderBlock extends StatelessWidget {
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w400,
                       height: 0,
+                      color: Colors.white,
                     ),
                   ),
                 ],

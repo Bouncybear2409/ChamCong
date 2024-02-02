@@ -72,25 +72,41 @@ class _AbsenceBlockState extends State<AbsenceBlock> {
                         SizedBox(
                           height: 8.sp,
                         ),
-                        Stack(children: [
-                          Text(
-                            startDate == null
-                                ? 'No date selected'
-                                : formatter.format(startDate!),
-                            style: TextStyle(color: Colors.white),
+                        Container(
+                          width: 150.sp,
+                          height: 50.sp,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 15.sp, vertical: 12.sp),
+                          clipBehavior: Clip.antiAlias,
+                          decoration: ShapeDecoration(
+                            color: Color(0xFF454545),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
+                              Text(
+                                startDate == null
+                                    ? 'Unselected'
+                                    : formatter.format(startDate!),
+                                style: TextStyle(
+                                  color: Color(0xFFECECF2),
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                               IconButton(
                                 onPressed: startDatePicker,
                                 icon: const Icon(
                                   Icons.calendar_month,
+                                  color: Colors.white,
                                 ),
                               ),
                             ],
                           ),
-                        ]),
+                        ),
                       ],
                     ),
                   ),
@@ -114,25 +130,43 @@ class _AbsenceBlockState extends State<AbsenceBlock> {
                         SizedBox(
                           height: 8.sp,
                         ),
-                        Stack(children: [
-                          Text(
-                            endDate == null
-                                ? 'No date selected'
-                                : formatter.format(endDate!),
-                            style: TextStyle(color: Colors.white),
+                        Container(
+                          width: 150.sp,
+                          height: 50.sp,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 15.sp, vertical: 12.sp),
+                          clipBehavior: Clip.antiAlias,
+                          decoration: ShapeDecoration(
+                            color: Color(0xFF454545),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
+                              Text(
+                                endDate == null
+                                    ? 'Unselected'
+                                    : formatter.format(endDate!),
+                                style: TextStyle(
+                                  color: Color(0xFFECECF2),
+                                  fontFamily: 'Roboto',
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                               IconButton(
-                                onPressed: endtDatePicker,
-                                icon: const Icon(
+                                onPressed: startDatePicker,
+                                icon: Icon(
                                   Icons.calendar_month,
+                                  color: Colors.white,
+                                  size: 18.sp,
                                 ),
                               ),
                             ],
                           ),
-                        ]),
+                        ),
                       ],
                     ),
                   ),

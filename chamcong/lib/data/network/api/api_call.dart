@@ -1,33 +1,51 @@
+import 'dart:convert';
+
 import 'package:chamcong/data/network/api/api_url.dart';
 import 'package:chamcong/data/models/absence.dart';
 import 'package:chamcong/data/models/userloginresponse.dart';
+import 'package:chamcong/data/network/api/dio_client.dart';
 import 'package:dio/dio.dart';
+import 'package:localstorage/localstorage.dart';
 
 class ApiCall {
   static Dio dio = Dio();
 
-  // static Future<CreateLeaveRequest> createLeaveRequest(
-  //     String startDate, String endDate, String userType) async {
-  //   try {
-  //     final response = await dio.post(
-  //       ApiUrl.login,
-  //       data: {'email': email, 'password': password, 'user_type': userType},
-  //     );
+  Future<void> fetchUserInfo(String accessToken) async {
+    // Khởi tạo local storage
+    final LocalStorage storage = LocalStorage('accessToken');
 
-  //     if (response.statusCode == 201) {
-  //       return UserLoginResponse.fromJson(response.data);
-  //     } else {
-  //       throw Exception('Failed to login');
-  //     }
-  //   } catch (e) {
-  //     throw Exception('Failed to login. Error: $e');
-  //   }
-  // }
+    // Đọc token từ local storage
+    await storage.ready;
+    String userToken = storage.getItem('accessToken') ?? '';
+
+    try {
+      // Gửi yêu cầu với token
+      var response = await dio.get(
+        'https://your-backend-api.com/user-info',
+        options: Options(
+          headers: {'Authorization': 'Bearer $userToken'},
+        ),
+      );
+
+      // Kiểm tra trạng thái của yêu cầu
+      if (response.statusCode == 200) {
+        // Xử lý dữ liệu trả về từ backend
+        var userData = json.decode(response.data.toString());
+        print('Thông tin người dùng: $userData');
+      } else {
+        // Xử lý lỗi nếu có
+        print('Lỗi khi gửi yêu cầu đến backend: ${response.statusCode}');
+      }
+    } catch (error) {
+      // Xử lý lỗi nếu có
+      print('Lỗi: $error');
+    }
+  }
 
   static Future<UserLoginResponse> loginUser(
       String email, String password, String userType) async {
     try {
-      final response = await dio.post(
+      final response = await Api().post(
         ApiUrl.login,
         data: {'email': email, 'password': password, 'user_type': userType},
       );

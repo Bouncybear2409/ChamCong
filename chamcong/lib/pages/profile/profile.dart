@@ -23,15 +23,15 @@ class _ProfilePageState extends State<ProfilePage> {
         title: Text(
           'Đăng xuất',
           style: TextStyle(
-            fontSize: 24.sp,
-            fontFamily: 'Roboto',
-            fontWeight: FontWeight.w400,
-          ),
+              fontSize: 24.sp,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w400,
+              color: Colors.white),
         ),
         content: Text(
           'Bạn có chắc muốn đăng xuất!',
           style: TextStyle(
-            color: const Color.fromARGB(255, 80, 80, 81),
+            color: Colors.white,
             fontSize: 14.sp,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w400,
@@ -96,7 +96,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       shape: OvalBorder(),
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -106,7 +106,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           'Đổi ảnh đại diện',
                           style: TextStyle(
                             color: Colors.green,
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w700,
                             height: 0,
@@ -116,20 +116,25 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 12, right: 219),
-                    child: SizedBox(
-                      width: 161,
-                      height: 30,
-                      child: Text(
-                        'Thông tin cá nhân',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w400,
-                          height: 0,
+                    padding: EdgeInsets.only(top: 12.sp, left: 20.sp),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: 161.sp,
+                          height: 30.sp,
+                          child: Text(
+                            'Thông tin cá nhân',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18.sp,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w400,
+                              height: 0,
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                   ),
                   SizedBox(
@@ -137,10 +142,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   Container(
                     width: 320.sp,
-                    height: 290.sp,
+                    height: 315.sp,
                     clipBehavior: Clip.antiAlias,
                     decoration: ShapeDecoration(
-                      color: Colors.white,
+                      color: Color(0xFF454545),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
@@ -154,61 +159,60 @@ class _ProfilePageState extends State<ProfilePage> {
                       ],
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsets.only(top: 15, left: 35, right: 35),
+                      padding: EdgeInsets.symmetric(horizontal: 20.sp),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment
                             .spaceEvenly, //chỉnh đều cho chữ, main: đi theo chiều thuận, cross: đi theo chiều nghịch
                         children: [
-                          const Text(
+                          Text(
                             'hoangkimchi0590@gmail.com',
                             style: TextStyle(
                               color: Color(0xFF888888),
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontFamily: 'Roboto',
                               fontWeight: FontWeight.w400,
                               height: 0,
                             ),
                           ),
-                          const Text(
+                          Text(
                             '14/01/2003',
                             style: TextStyle(
                               color: Color(0xFF888888),
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontFamily: 'Roboto',
                               fontWeight: FontWeight.w400,
                               height: 0,
                             ),
                           ),
-                          const Text.rich(
-                            const TextSpan(
+                          Text.rich(
+                            TextSpan(
                               children: [
-                                const TextSpan(
+                                TextSpan(
                                   text: '0934699436',
                                   style: TextStyle(
                                     color: Color(0xFF888888),
-                                    fontSize: 14,
+                                    fontSize: 14.sp,
                                     fontFamily: 'Roboto',
                                     fontWeight: FontWeight.w400,
                                     height: 0,
                                   ),
                                 ),
-                                const TextSpan(
+                                TextSpan(
                                   text: ' ',
                                   style: TextStyle(
                                     color: Color(0xFF888888),
-                                    fontSize: 16,
+                                    fontSize: 16.sp,
                                     fontFamily: 'Roboto',
                                     fontWeight: FontWeight.w400,
                                     height: 0,
                                   ),
                                 ),
-                                const TextSpan(
+                                TextSpan(
                                   text: '(Số điện thoại)',
                                   style: TextStyle(
                                     color: Color(0xFF888888),
-                                    fontSize: 12,
+                                    fontSize: 12.sp,
                                     fontStyle: FontStyle.italic,
                                     fontFamily: 'Roboto',
                                     fontWeight: FontWeight.w300,
@@ -219,11 +223,11 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                           Container(
-                            width: 300,
+                            width: 280.sp,
                             decoration: ShapeDecoration(
                               shape: RoundedRectangleBorder(
                                 side: BorderSide(
-                                  width: 1,
+                                  width: 1.sp,
                                   strokeAlign: BorderSide.strokeAlignCenter,
                                   color: Color(0xFF888888),
                                 ),
@@ -236,23 +240,25 @@ class _ProfilePageState extends State<ProfilePage> {
                               Text(
                                 'Hoàng Kim Chi',
                                 style: TextStyle(
-                                  color: Color(0xFF888888),
-                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontSize: 14.sp,
                                   fontFamily: 'Roboto',
                                   fontWeight: FontWeight.w400,
                                   height: 0,
                                 ),
                               ),
                               Image(
-                                  image: AssetImage('assets/images/Vector.png'))
+                                image: AssetImage(AppImages.imgPen),
+                                color: Colors.white,
+                              )
                             ],
                           ),
                           Container(
-                            width: 300,
+                            width: 280.sp,
                             decoration: ShapeDecoration(
                               shape: RoundedRectangleBorder(
                                 side: BorderSide(
-                                  width: 1,
+                                  width: 1.sp,
                                   strokeAlign: BorderSide.strokeAlignCenter,
                                   color: Color(0xFF888888),
                                 ),
@@ -262,44 +268,24 @@ class _ProfilePageState extends State<ProfilePage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text.rich(
-                                const TextSpan(
+                              Text.rich(
+                                TextSpan(
                                   children: [
-                                    const TextSpan(
-                                      text: '079303001024',
+                                    TextSpan(
+                                      text: '079303001024 ',
                                       style: TextStyle(
-                                        color: Color(0xFF888888),
-                                        fontSize: 14,
+                                        color: Colors.white,
+                                        fontSize: 14.sp,
                                         fontFamily: 'Roboto',
                                         fontWeight: FontWeight.w400,
                                         height: 0,
                                       ),
                                     ),
-                                    const TextSpan(
-                                      text: ' ',
-                                      style: TextStyle(
-                                        color: Color(0xFFECECF2),
-                                        fontSize: 16,
-                                        fontFamily: 'Roboto',
-                                        fontWeight: FontWeight.w400,
-                                        height: 0,
-                                      ),
-                                    ),
-                                    const TextSpan(
-                                      text: ' ',
-                                      style: TextStyle(
-                                        color: Color(0xFFECECF2),
-                                        fontSize: 12,
-                                        fontFamily: 'Roboto',
-                                        fontWeight: FontWeight.w400,
-                                        height: 0,
-                                      ),
-                                    ),
-                                    const TextSpan(
+                                    TextSpan(
                                       text: '(CCCD)',
                                       style: TextStyle(
                                         color: Color(0xFF888888),
-                                        fontSize: 12,
+                                        fontSize: 12.sp,
                                         fontStyle: FontStyle.italic,
                                         fontFamily: 'Roboto',
                                         fontWeight: FontWeight.w300,
@@ -310,15 +296,17 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                               ),
                               Image(
-                                  image: AssetImage('assets/images/Vector.png'))
+                                image: AssetImage(AppImages.imgPen),
+                                color: Colors.white,
+                              ),
                             ],
                           ),
                           Container(
-                            width: 300,
+                            width: 280.sp,
                             decoration: ShapeDecoration(
                               shape: RoundedRectangleBorder(
                                 side: BorderSide(
-                                  width: 1,
+                                  width: 1.sp,
                                   strokeAlign: BorderSide.strokeAlignCenter,
                                   color: Color(0xFF888888),
                                 ),
@@ -328,44 +316,24 @@ class _ProfilePageState extends State<ProfilePage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text.rich(
-                                const TextSpan(
+                              Text.rich(
+                                TextSpan(
                                   children: [
-                                    const TextSpan(
-                                      text: 'BA',
+                                    TextSpan(
+                                      text: 'BA ',
                                       style: TextStyle(
-                                        color: Color(0xFF888888),
-                                        fontSize: 14,
+                                        color: Colors.white,
+                                        fontSize: 14.sp,
                                         fontFamily: 'Roboto',
                                         fontWeight: FontWeight.w400,
                                         height: 0,
                                       ),
                                     ),
-                                    const TextSpan(
-                                      text: ' ',
-                                      style: TextStyle(
-                                        color: Color(0xFFECECF2),
-                                        fontSize: 16,
-                                        fontFamily: 'Roboto',
-                                        fontWeight: FontWeight.w400,
-                                        height: 0,
-                                      ),
-                                    ),
-                                    const TextSpan(
-                                      text: ' ',
-                                      style: TextStyle(
-                                        color: Color(0xFFECECF2),
-                                        fontSize: 12,
-                                        fontFamily: 'Roboto',
-                                        fontWeight: FontWeight.w400,
-                                        height: 0,
-                                      ),
-                                    ),
-                                    const TextSpan(
+                                    TextSpan(
                                       text: '(Vị trí)',
                                       style: TextStyle(
                                         color: Color(0xFF888888),
-                                        fontSize: 12,
+                                        fontSize: 12.sp,
                                         fontStyle: FontStyle.italic,
                                         fontFamily: 'Roboto',
                                         fontWeight: FontWeight.w300,
@@ -376,17 +344,17 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                               ),
                               Image(
-                                image:
-                                    AssetImage('assets/images/expand_more.png'),
+                                image: AssetImage(AppImages.imgDownArrow),
+                                color: Colors.white,
                               ),
                             ],
                           ),
                           Container(
-                            width: 300,
+                            width: 280.sp,
                             decoration: ShapeDecoration(
                               shape: RoundedRectangleBorder(
                                 side: BorderSide(
-                                  width: 1,
+                                  width: 1.sp,
                                   strokeAlign: BorderSide.strokeAlignCenter,
                                   color: Color(0xFF888888),
                                 ),
@@ -399,16 +367,16 @@ class _ProfilePageState extends State<ProfilePage> {
                               Text(
                                 'Nữ',
                                 style: TextStyle(
-                                  color: Color(0xFF888888),
-                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontSize: 14.sp,
                                   fontFamily: 'Roboto',
                                   fontWeight: FontWeight.w400,
                                   height: 0,
                                 ),
                               ),
                               Image(
-                                image:
-                                    AssetImage('assets/images/expand_more.png'),
+                                image: AssetImage(AppImages.imgDownArrow),
+                                color: Colors.white,
                               ),
                             ],
                           ),
@@ -419,32 +387,34 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: 20.sp,
               ),
               Container(
-                width: 380,
-                height: 105,
+                width: 320.sp,
+                height: 105.sp,
                 clipBehavior: Clip.antiAlias,
                 decoration: ShapeDecoration(
-                  color: Colors.white,
+                  color: Color(0xFF454545),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 15, bottom: 10, left: 25),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Row(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 20.sp),
+                      child: Row(
                         children: [
                           Image(image: AssetImage(AppImages.imgLockin)),
+                          SizedBox(
+                            width: 20.sp,
+                          ),
                           Text(
                             'Đổi mật khẩu',
                             style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
+                              color: Colors.white,
+                              fontSize: 14.sp,
                               fontFamily: 'Roboto',
                               fontWeight: FontWeight.w400,
                               height: 0,
@@ -452,35 +422,44 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ],
                       ),
-                      Container(
-                        width: 310,
-                        decoration: ShapeDecoration(
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              width: 1,
-                              strokeAlign: BorderSide.strokeAlignCenter,
-                              color: Color(0xFF888888),
-                            ),
+                    ),
+                    Container(
+                      width: 280.sp,
+                      decoration: ShapeDecoration(
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            width: 1,
+                            strokeAlign: BorderSide.strokeAlignCenter,
+                            color: Color(0xFF888888),
                           ),
                         ),
                       ),
-                      Row(
-                        children: [
-                          Image(image: AssetImage(AppImages.imgLogout)),
-                          Text(
-                            'Đăng xuất',
-                            style: TextStyle(
-                              color: Color(0xFFFF4747),
-                              fontSize: 14,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.w400,
-                              height: 0,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 20.sp),
+                      child: InkWell(
+                        onTap: logoutAlert,
+                        child: Row(
+                          children: [
+                            Image(image: AssetImage(AppImages.imgLogout)),
+                            SizedBox(
+                              width: 20.sp,
                             ),
-                          ),
-                        ],
+                            Text(
+                              'Đăng xuất',
+                              style: TextStyle(
+                                color: Color(0xFFFF4747),
+                                fontSize: 14.sp,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.w400,
+                                height: 0,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],
