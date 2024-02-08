@@ -17,4 +17,5 @@ class AppImages {
   static const String imgBackGroundSplash =
       '$_imageAssets/background_splash.jpg';
   static const String imgLogo = '$_imageAssets/logo.png';
+  static const String removeEye = '$_imageAssets/remove_eye.png';
 }

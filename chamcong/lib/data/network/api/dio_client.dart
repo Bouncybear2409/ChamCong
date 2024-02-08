@@ -6,7 +6,6 @@ import 'package:dio/dio.dart';
 class Api {
   final tokenDio = Dio(BaseOptions(baseUrl: "http://192.168.22.10:8000/"));
   String? userToken;
-  String? userRefreshToken;
   bool isRememberMe = false;
   bool isLogged = false;
 
@@ -46,7 +45,6 @@ class Api {
   // ignore: use_setters_to_change_properties
   void setHeaderToken({String? token, String? refreshToken}) {
     userToken = token;
-    userRefreshToken = refreshToken;
     isLogged = token != null;
   }
 

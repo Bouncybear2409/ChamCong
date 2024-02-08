@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ButtonComponent extends StatelessWidget {
-  ButtonComponent({
+class AdminButton extends StatelessWidget {
+  const AdminButton({
     super.key,
     required this.onTap,
     required this.text,

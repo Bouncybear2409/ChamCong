@@ -1,6 +1,6 @@
 import 'package:chamcong/pages/widgets/app_color.dart';
 import 'package:chamcong/pages/widgets/background/background.dart';
-import 'package:chamcong/pages/widgets/button.dart/button.dart';
+import 'package:chamcong/pages/widgets/button.dart/employee_button.dart';
 import 'package:chamcong/pages/forgot_password/verify/otp.dart';
 import 'package:chamcong/pages/recover/new_password.dart';
 import 'package:flutter/material.dart';
@@ -121,7 +121,7 @@ class _VerifyPageState extends State<VerifyPage> {
                 children: [
                   IgnorePointer(
                     ignoring: !isCheck,
-                    child: ButtonComponent(
+                    child: EmployeeButton(
                         onTap: () {
                           // otp valid => vao trang tiep theo
                           // otp invalid => show loi8

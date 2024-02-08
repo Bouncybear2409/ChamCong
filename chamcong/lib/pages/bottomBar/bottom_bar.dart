@@ -1,7 +1,7 @@
 import 'package:chamcong/pages/absence/absence_page.dart';
 import 'package:chamcong/pages/history/history_page.dart';
 import 'package:chamcong/pages/home/home_page.dart';
-import 'package:chamcong/pages/login/blocks/login_body.dart';
+import 'package:chamcong/pages/login/login_page.dart';
 import 'package:chamcong/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -87,7 +87,7 @@ class _BottomBarState extends State<BottomBar> {
         HomePage(accessToken: widget.accessToken),
 
         /// Absence page
-        const Absence(),
+        Absence(accessToken: widget.accessToken),
 
         /// History page
         const HistoryPage(),

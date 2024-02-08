@@ -60,6 +60,33 @@ class ApiCall {
     }
   }
 
+  static Future<Response> createLeaveRequest(String startDate, String endDate,
+      String reason, String otherReason, String token) async {
+    Api().setHeaderToken(
+      token: token,
+    );
+    try {
+      final response = await Api().post(
+        ApiUrl.createLeaveRequest,
+        data: {
+          'start_date': startDate,
+          'end_date': endDate,
+          'reason': reason,
+          'other_reason': otherReason
+        },
+        hasToken: true,
+      );
+
+      if (response.statusCode == 201) {
+        return response;
+      } else {
+        throw Exception('Failed to create leave request');
+      }
+    } catch (e) {
+      throw Exception('Failed to create leave request. Error: $e');
+    }
+  }
+
   static Future<List<AbsenceResponse>> fetchAbsenceAPI() async {
     // var response = await dio.get(ApiUrl.absenceReport);
     // final List<dynamic> responseData = response.data;

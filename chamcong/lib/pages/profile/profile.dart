@@ -3,7 +3,7 @@ import 'dart:ffi';
 
 import 'package:chamcong/pages/slpash/splash_page.dart';
 import 'package:chamcong/pages/widgets/app_images.dart';
-import 'package:chamcong/pages/widgets/button.dart/button.dart';
+import 'package:chamcong/pages/widgets/button.dart/employee_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -50,7 +50,7 @@ class _ProfilePageState extends State<ProfilePage> {
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const Splash(),
+                builder: (context) => const SplashPage(),
               ),
             ),
             child: const Text(

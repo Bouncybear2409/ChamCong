@@ -2,8 +2,8 @@ import 'package:chamcong/pages/absence/blocks/absences_block.dart';
 import 'package:flutter/material.dart';
 
 class Absence extends StatelessWidget {
-  const Absence({super.key});
-
+  const Absence({super.key, required this.accessToken});
+  final String? accessToken;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,9 @@ class Absence extends StatelessWidget {
         backgroundColor: Colors.transparent,
         centerTitle: true,
       ),
-      body: const AbsenceBlock(),
+      body: AbsenceBlock(
+        accessToken: accessToken,
+      ),
     );
   }
 }

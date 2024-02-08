@@ -1,6 +1,6 @@
 import 'package:chamcong/pages/widgets/app_images.dart';
 import 'package:chamcong/pages/widgets/background/background.dart';
-import 'package:chamcong/pages/widgets/button.dart/button.dart';
+import 'package:chamcong/pages/widgets/button.dart/employee_button.dart';
 import 'package:chamcong/pages/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -188,7 +188,7 @@ class _NewPasswordState extends State<NewPassword> {
                         SizedBox(
                           width: 320.sp,
                           height: 50.sp,
-                          child: ButtonComponent(
+                          child: EmployeeButton(
                             onTap: validateLogin,
                             text: 'Hoàn tất',
                             color_button: const Color(0xFF279142),

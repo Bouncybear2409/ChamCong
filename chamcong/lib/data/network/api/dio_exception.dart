@@ -14,6 +14,28 @@ class AppInterceptors extends Interceptor {
   });
 
   @override
+  Future<void> onRequest(
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
+    final String? userToken = Api().userToken;
+
+    // Remove param url null or ''
+    options.queryParameters
+        .removeWhere((key, value) => value == null || value == '');
+
+    // Options? options;
+    if (hasToken && userToken != null) {
+      options.headers = <String, dynamic>{
+        "Content-Type": "application/json",
+        "Authorization": "Bearer $userToken",
+      };
+    }
+
+    return handler.next(options);
+  }
+
+  @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
     switch (err.type) {
       case DioErrorType.connectionTimeout:

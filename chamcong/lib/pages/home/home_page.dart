@@ -1,6 +1,6 @@
 import 'package:chamcong/pages/home/blocks/datetime.dart';
 import 'package:chamcong/pages/home/blocks/header_block.dart';
-import 'package:chamcong/pages/widgets/button.dart/button.dart';
+import 'package:chamcong/pages/widgets/button.dart/employee_button.dart';
 import 'package:chamcong/pages/home/blocks/clock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
             child: SizedBox(
               width: 320.sp,
               height: 50.sp,
-              child: ButtonComponent(
+              child: EmployeeButton(
                 onTap: () {},
                 text: 'Chấm công',
                 color_button: const Color(0xFF279142),

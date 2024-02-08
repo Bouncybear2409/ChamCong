@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SplashWidget extends StatelessWidget {
-  const SplashWidget({super.key});
+class LoginTextField extends StatelessWidget {
+  const LoginTextField({super.key});
 
   @override
   Widget build(BuildContext context) {
