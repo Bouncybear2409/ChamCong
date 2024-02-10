@@ -172,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const LoginAppbar(),
                       SizedBox(
-                        height: 31.sp,
+                        height: 20.sp,
                       ),
                       Container(
                         width: 320.sp,

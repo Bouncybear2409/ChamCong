@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
           HeaderBlock(
             accessToken: accessToken,
           ),
-          const Clock(),
+          Clock(),
           const DateAndTime(),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 20.sp),
