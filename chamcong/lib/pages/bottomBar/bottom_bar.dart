@@ -5,6 +5,7 @@ import 'package:chamcong/pages/login/login_page.dart';
 import 'package:chamcong/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class BottomBar extends StatefulWidget {
   BottomBar({super.key, required this.userType, required this.accessToken});
   String? accessToken;

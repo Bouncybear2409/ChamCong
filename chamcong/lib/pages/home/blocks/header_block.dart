@@ -74,7 +74,7 @@ class HeaderBlock extends StatelessWidget {
                     )
                   ],
                 ),
-                child: const Center(
+                child: Center(
                   child: Text.rich(
                     TextSpan(
                       children: [
@@ -82,7 +82,7 @@ class HeaderBlock extends StatelessWidget {
                           text: 'Ca làm việc: ',
                           style: TextStyle(
                             color: Color(0xFF595959),
-                            fontSize: 15,
+                            fontSize: 15.sp,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w400,
                             height: 0,
@@ -92,7 +92,7 @@ class HeaderBlock extends StatelessWidget {
                           text: '09:00 AM - 06:00 PM',
                           style: TextStyle(
                             color: Color(0xFF595959),
-                            fontSize: 15,
+                            fontSize: 15.sp,
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w600,
                             height: 0,

@@ -25,7 +25,7 @@ class AdminButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.white),
-          borderRadius: BorderRadius.circular(21),
+          borderRadius: BorderRadius.circular(21.sp),
         ),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(

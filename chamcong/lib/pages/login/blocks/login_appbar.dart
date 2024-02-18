@@ -28,7 +28,7 @@ class LoginAppbar extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 90.sp,
+            width: 80.sp,
           ),
           Text(
             'Đăng nhập',

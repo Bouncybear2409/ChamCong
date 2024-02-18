@@ -1,5 +1,4 @@
 import 'package:chamcong/pages/widgets/app_color.dart';
-import 'package:chamcong/pages/widgets/background/background.dart';
 import 'package:chamcong/pages/widgets/background/background_splash.dart';
 import 'package:chamcong/pages/widgets/button.dart/employee_button.dart';
 import 'package:chamcong/pages/forgot_password/verify/verify.dart';

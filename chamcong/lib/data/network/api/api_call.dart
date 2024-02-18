@@ -20,12 +20,10 @@ class ApiCall {
 
     try {
       // Gửi yêu cầu với token
-      var response = await dio.get(
-        'https://your-backend-api.com/user-info',
-        options: Options(
-          headers: {'Authorization': 'Bearer $userToken'},
-        ),
-      );
+      final response = await Api().get('https://your-backend-api.com/user-info',
+          customOptions: Options(
+            headers: {'Authorization': 'Bearer $userToken'},
+          ));
 
       // Kiểm tra trạng thái của yêu cầu
       if (response.statusCode == 200) {
